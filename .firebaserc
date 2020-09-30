@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "unlz-vacunapp": {
+      "hosting": {
+        "vacunAPP": [
+          "unlz-vacunapp"
+        ]
+      }
+    }
+  }
+}
