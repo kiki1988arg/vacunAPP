@@ -1,7 +1,7 @@
 {
   "name": "vacunAPP",
   "short_name": "vacunAPP",
-  "theme_color": "#1976d2",
+  "theme_color": "#674ea7",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
