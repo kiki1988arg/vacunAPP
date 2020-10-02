@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -16,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
