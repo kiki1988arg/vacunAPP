@@ -6,3 +6,16 @@
   left: 0;
   right: 0;
 }
+
+.update-the-app {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  width: 250px;
+  margin: auto;
+}
+
+.update-button {
+  margin: auto;
+}

@@ -10,9 +10,11 @@ import { MaterialModule } from './shared/modules/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, HelpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,9 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
+    FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
