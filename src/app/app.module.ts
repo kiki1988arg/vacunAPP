@@ -12,9 +12,15 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HelpComponent } from './components/help/help.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { HeaderComponent } from './components/header/header.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HelpComponent],
+  declarations: [AppComponent, HomeComponent, HelpComponent, SignInComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +29,9 @@ import { HelpComponent } from './components/help/help.component';
     MaterialModule,
     FlexLayoutModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
@@ -31,4 +40,4 @@ import { HelpComponent } from './components/help/help.component';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

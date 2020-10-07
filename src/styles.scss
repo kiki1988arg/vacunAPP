@@ -11,8 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$primary-vacunapp: (
-  50: #edeaf4,
+$primary-vacunapp: (50: #edeaf4,
   100: #d1cae5,
   200: #b3a7d3,
   300: #9583c1,
@@ -26,8 +25,7 @@ $primary-vacunapp: (
   A200: #a28aff,
   A400: #7a57ff,
   A700: #663dff,
-  contrast: (
-    50: #000000,
+  contrast: (50: #000000,
     100: #000000,
     200: #000000,
     300: #000000,
@@ -52,15 +50,11 @@ $vacunAPP-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$vacunAPP-theme: mat-light-theme(
-  (
-    color: (
-      primary: $vacunAPP-primary,
+$vacunAPP-theme: mat-light-theme((color: (primary: $vacunAPP-primary,
       accent: $vacunAPP-accent,
       warn: $vacunAPP-warn,
     ),
-  )
-);
+  ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -72,18 +66,16 @@ $vacunAPP-theme: mat-light-theme(
 html,
 body {
   height: 100%;
-  background: #74ebd5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #acb6e5,
-    #74ebd5
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #acb6e5,
-    #74ebd5
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #74a4eb;
+  // /* fallback for old browsers */
+  // background: -webkit-radial-gradient(#000c40,
+  //     #1a132b);
+  // /* Chrome 10-25, Safari 5.1-6 */
+  // background: radial-gradient(#000c40,
+  //     #1a132b);
+  // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -91,4 +83,13 @@ body {
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.float-right {
+  float: right
+}
+
+//mat-card
+.mat-card {
+  background: cornsilk;
 }

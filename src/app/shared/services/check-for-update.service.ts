@@ -2,6 +2,7 @@ import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { interval, concat } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ export class CheckForUpdateService {
     );
     const everySixHours$ = interval(6 * 60 * 60 * 1000);
     const everySixHoursOnceAppIsStable$ = concat(appIsStable$, everySixHours$);
-    everySixHoursOnceAppIsStable$.subscribe(() => updates.checkForUpdate());
+    if (environment.production)
+      everySixHoursOnceAppIsStable$.subscribe(() => updates.checkForUpdate());
   }
 }

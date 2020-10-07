@@ -1,25 +1,13 @@
-<mat-toolbar color="primary">
-  <mat-icon
-    style="cursor: pointer"
-    (click)="previousUrl()"
-    *ngIf="this.showPreviousButton"
-    >keyboard_backspace</mat-icon
-  >
-  <span class="spacer"></span>
-  <span>VacunAPP</span>
-</mat-toolbar>
+<app-header></app-header>
 
-<router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
 
 <mat-card class="update-the-app" *ngIf="this.updateAvailable">
   <div style="text-align: center">
     Hay una nueva versión disponible
-    <button
-      class="update-button"
-      (click)="updateToLatest()"
-      mat-raised-button
-      color="primary"
-    >
+    <button class="update-button" (click)="updateToLatest()" mat-raised-button color="primary">
       Actualizar
     </button>
   </div>
