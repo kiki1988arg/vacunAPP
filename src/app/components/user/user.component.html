@@ -1,6 +1,38 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>1</mat-grid-tile>
-    <mat-grid-tile>2</mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
+<div fxLayout="column" fxLayoutAlign="center" [ngStyle.xs]="{'width': '95%'}" [ngStyle]="{'width': '60%'}"
+    style="margin:auto">
+    <div style="margin:15px auto" fxFlex>
+        <img
+            src="https://vignette.wikia.nocookie.net/among-us-wiki/images/a/ab/Cyan.png/revision/latest/scale-to-width-down/147?cb=20200927084517">
+    </div>
+    <mat-toolbar fxFlex>
+        Perfil pendiente de validación.
+    </mat-toolbar>
+    <div fxFlex>
+        <mat-grid-list cols="2" rowHeight="90px" gutterSize="5px">
+            <mat-grid-tile>
+                VACUNAS
+                <fa-icon color="primary" class="menu-icon" [icon]="faCrutch"></fa-icon>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                PERSONAS
+                <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                CENTROS
+                <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                CONFIGURACION
+                <mat-icon color="primary" class="menu-icon">settings</mat-icon>
+            </mat-grid-tile>
+            <mat-grid-tile routerLink="contact">
+                CONSULTAS
+                <mat-icon color="primary" class="menu-icon">phone</mat-icon>
+            </mat-grid-tile>
+            <mat-grid-tile (click)="logOut()">
+                SALIR
+                <mat-icon color="primary" class="menu-icon">exit_to_app</mat-icon>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

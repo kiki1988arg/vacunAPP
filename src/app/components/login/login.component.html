@@ -1,8 +1,8 @@
     <mat-card>
         <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
             <mat-card-header>
-                <mat-card-title>Registrate</mat-card-title>
-                <mat-card-subtitle>Completa el formulario</mat-card-subtitle>
+                <mat-card-title>Ingresá</mat-card-title>
+                <mat-card-subtitle>Complete e-mail y password</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
@@ -30,33 +30,10 @@
                         </mat-error>
                     </mat-form-field>
                 </p>
-                <!-- <p>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Repita el password(*)</mat-label>
-                        <input matInput placeholder="repetí el password" formControlName="passwordVerification"
-                            maxlength="25">
-                        <mat-icon matSuffix>vpn_key</mat-icon>
-                        <mat-hint>Repita el password ingresado</mat-hint>
-                        <mat-error *ngIf="this.loginFormControls.passwordVerification.hasError">No coinside con el
-                            password ingresado
-                            anteriormente</mat-error>
-                    </mat-form-field>
-                </p> -->
-                <!-- <label>Indique a que entidad pertenece:</label>
-                <div>
-                    <mat-radio-group>
-                        <mat-radio-button color="primary" value="Personal">Personal</mat-radio-button>
-                        <mat-radio-button color="primary" value="Medic">Médico</mat-radio-button>
-                        <mat-radio-button color="primary" value="Institution">Institución</mat-radio-button>
-                    </mat-radio-group>
-                </div> -->
-                <mat-checkbox color="primary" class="example-margin">Acepto terminos y condiciones</mat-checkbox>
-
             </mat-card-content>
             <mat-card-actions>
                 <button type="submit" mat-stroked-button [disabled]="!signInForm.valid" class="float-right"
-                    color="primary" mat-button>Crear cuenta</button>
+                    color="primary" mat-button>Ingresar</button>
             </mat-card-actions>
         </form>
     </mat-card>
-

@@ -66,14 +66,8 @@ $vacunAPP-theme: mat-light-theme((color: (primary: $vacunAPP-primary,
 html,
 body {
   height: 100%;
-  background: #74a4eb;
-  // /* fallback for old browsers */
-  // background: -webkit-radial-gradient(#000c40,
-  //     #1a132b);
-  // /* Chrome 10-25, Safari 5.1-6 */
-  // background: radial-gradient(#000c40,
-  //     #1a132b);
-  // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background: #74a4eb;
+  background-image: radial-gradient(circle, #ddd5ff, #c7c0fb, #afacf8, #9398f5, #7286f2, #5e74e2, #4963d2, #3152c2, #2f3ea2, #292b83, #201966, #15074a);
 }
 
 body {
@@ -89,7 +83,17 @@ body {
   float: right
 }
 
-//mat-card
-.mat-card {
-  background: cornsilk;
+mat-card {
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  mat-card {
+    max-width: 75%;
+  }
+}
+
+
+mat-card {
+  width: 85%;
 }

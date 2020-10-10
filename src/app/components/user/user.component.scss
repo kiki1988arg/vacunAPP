@@ -1,3 +1,31 @@
+.user-menu {
+    background: red;
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+}
+
 mat-grid-tile {
-    background: lightblue;
+    background: ghostwhite;
+    cursor: pointer;
+}
+
+img {
+    vertical-align: middle;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.menu-icon {
+    height: 36px;
+    font-size: 33px;
+    position: absolute;
+    left: -1px;
+    color: #674ea7;
+}
+
+mat-toolbar {
+    margin: 15px 0;
+    font-size: 14px;
 }

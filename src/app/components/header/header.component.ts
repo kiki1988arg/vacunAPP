@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class HeaderComponent implements OnInit {
   showPreviousButton = false;
-  constructor(private location: Location, private router: Router, public auth: AngularFireAuth) { }
+  constructor(private location: Location, public router: Router, public auth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }

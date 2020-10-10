@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { auth } from 'firebase';
 import { Observable } from 'rxjs';
@@ -13,10 +14,11 @@ export class AuthService {
   constructor(
     private ngZone: NgZone,
     private router: Router,
-    private firebaseAuth: AngularFireAuth) {
+    private firebaseAuth: AngularFireAuth,
+    private _snackBar: MatSnackBar) {
     this.user = firebaseAuth.authState;
     this.firebaseAuth.idToken.subscribe(token => {
-      localStorage.setItem('user', (token) ? token : null);
+      localStorage.setItem('token', (token) ? token : null);
     })
   }
 
@@ -24,23 +26,25 @@ export class AuthService {
   signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Success!', value);
-      })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-      });
   }
 
   login(email: string, password: string) {
     this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Nice, it worked!');
+      .catch((error: firebase.FirebaseError) => {
+        if (error.code == AUTH_ERROR_CODE.Not_found)
+          this._snackBar.open("Verificá el mail ingresado sea el correcto", "ERROR", {
+            duration: 5000,
+          });
+        if (error.code == AUTH_ERROR_CODE.Wrong_password)
+          this._snackBar.open("Verificá el mail / password ingresado sea el correcto", "ERROR", {
+            duration: 5000,
+          });
+        if (error.code == AUTH_ERROR_CODE.Too_many_requests)
+          this._snackBar.open("Has intentado entrar a la cuenta muchas veces", "ERROR", {
+            duration: 5000,
+          });
       })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-      });
   }
 
   loginWithGoogle() {
@@ -53,12 +57,22 @@ export class AuthService {
     this.firebaseAuth.signInWithPopup(new auth.FacebookAuthProvider());
   }
 
-  SignOut() {
+  getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  signOut() {
     return this.firebaseAuth.signOut().then(() => {
-      localStorage.removeItem('user');
+      localStorage.removeItem('token');
       this.ngZone.run(() => {
         this.router.navigate(['']);
       })
     })
   }
+}
+
+enum AUTH_ERROR_CODE {
+  Not_found = "auth/user-not-found",
+  Wrong_password = 'auth/wrong-password',
+  Too_many_requests = 'auth/too-many-requests'
 }

@@ -1,20 +1,24 @@
-<mat-toolbar color="primary">
+<mat-toolbar [class.mat-elevation-z6]="true" color="primary">
     <mat-icon style="cursor: pointer" (click)="previousUrl()"
         *ngIf="(this.router.url != '/' && this.router.url != '/user')">keyboard_backspace
     </mat-icon>
     <span class="spacer"></span>
     <span *ngIf="auth.user | async as user; else showLogin" style="display: contents;">
-        <img src={{user.photoURL}} alt="Avatar">
         <div>
-            <sub [matMenuTriggerFor]="menu">{{ user.displayName }}</sub>
-            <mat-menu #menu="matMenu">
+            <button mat-mini-fab color="accent" [matMenuTriggerFor]="beforeMenu">
+                <p style="font-size:20px" color="primary">{{ user.email.slice(0,1).toUpperCase() }}</p>
+            </button>            
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <p style="margin: 0px 20px;">{{ user.email }}</p>
+                <mat-divider>
+                </mat-divider>
                 <button mat-menu-item>
                     <mat-icon>perm_identity</mat-icon>
                     <span>Mi perfil</span>
                 </button>
                 <button mat-menu-item>
                     <mat-icon>exit_to_app</mat-icon>
-                    <span (click)="logout()">Log out</span>
+                    <span (click)="logout()">Salir</span>
                 </button>
             </mat-menu>
         </div>

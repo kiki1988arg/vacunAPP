@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="space-evenly center">
   <img fxFlex class="logo" src="assets/icons/main-logo.png" />
 
-  <button class="app-button" mat-raised-button color="accent">Ingresar</button>
+  <button class="app-button" mat-raised-button color="accent" routerLink="/login">Ingresar</button>
   <button class="app-button" mat-raised-button style="background-color: rgb(29, 161, 242);color:white"
     (click)="loginWithTwitter()">
     Ingresar con
@@ -18,12 +18,9 @@
   <button class="app-button" mat-raised-button color="accent" routerLink="/sign-in">
     Crear cuenta
   </button>
-  <button class="app-button" mat-raised-button color="accent" routerLink="/help">
-    <fa-icon [icon]="faFlag"></fa-icon>Ayuda
-  </button>
-  <h4 style="display: inherit">
+  <h4 style="display: inherit;color:white">
     ¿No tenes cuenta?.
-    <p style="text-decoration: underline; color: blue;cursor: pointer;" routerLink="/sign-in"> Registrate</p>
+    <p style="text-decoration: underline; color: #ffd740;cursor: pointer;" routerLink="/sign-in"> Registrate</p>
   </h4>
 
   <!-- <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="1">

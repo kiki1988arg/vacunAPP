@@ -43,6 +43,8 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatGridListModule } from '@angular/material/grid-list';
 
+
+
 @NgModule({
   exports: [
     A11yModule,
@@ -88,7 +90,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    MatGridListModule,
+    MatGridListModule
   ],
 })
 export class MaterialModule { }

@@ -9,18 +9,28 @@ import { environment } from '../environments/environment';
 import { MaterialModule } from './shared/modules/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HelpComponent } from './components/help/help.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { HeaderComponent } from './components/header/header.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
+import { UserComponent } from './components/user/user.component';
+import { TokenInterceptor } from './shared/interceptors/token-interceptor';
+import { ContactComponent } from './components/user/contact/contact.component';
+import { LoginComponent } from './components/login/login.component';
+import { ExitComponent } from './components/user/dialogs/exit/exit.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HelpComponent, SignInComponent, HeaderComponent],
+  declarations: [AppComponent,
+    HomeComponent,
+    SignInComponent,
+    HeaderComponent,
+    UserComponent,
+    ContactComponent,
+    LoginComponent,
+    ExitComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +47,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     }),
     FontAwesomeModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
