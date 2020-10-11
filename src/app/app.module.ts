@@ -21,6 +21,8 @@ import { TokenInterceptor } from './shared/interceptors/token-interceptor';
 import { ContactComponent } from './components/user/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExitComponent } from './components/user/dialogs/exit/exit.component';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [AppComponent,
@@ -40,6 +42,7 @@ import { ExitComponent } from './components/user/dialogs/exit/exit.component';
     FlexLayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

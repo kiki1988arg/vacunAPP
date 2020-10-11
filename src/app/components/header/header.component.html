@@ -1,68 +1,56 @@
-<mat-toolbar [class.mat-elevation-z6]="true" color="primary">
-    <mat-icon style="cursor: pointer" (click)="previousUrl()"
-        *ngIf="(this.router.url != '/' && this.router.url != '/user')">keyboard_backspace
-    </mat-icon>
-    <span class="spacer"></span>
-    <span *ngIf="auth.user | async as user; else showLogin" style="display: contents;">
-        <div>
-            <button mat-mini-fab color="accent" [matMenuTriggerFor]="beforeMenu">
-                <p style="font-size:20px" color="primary">{{ user.email.slice(0,1).toUpperCase() }}</p>
-            </button>            
-            <mat-menu #beforeMenu="matMenu" xPosition="before">
-                <p style="margin: 0px 20px;">{{ user.email }}</p>
-                <mat-divider>
-                </mat-divider>
-                <button mat-menu-item>
-                    <mat-icon>perm_identity</mat-icon>
-                    <span>Mi perfil</span>
-                </button>
-                <button mat-menu-item>
-                    <mat-icon>exit_to_app</mat-icon>
-                    <span (click)="logout()">Salir</span>
-                </button>
-            </mat-menu>
-        </div>
 
-    </span>
-    <ng-template #showLogin>
-        <span>VacunAPP</span>
-    </ng-template>
-</mat-toolbar>
-
-<!-- {
-"uid": "PEhE2kz0oVeYpKNwTW0vD75XIb42",
-"displayName": "Ezequiel Arakaki",
-"photoURL": "https://pbs.twimg.com/profile_images/1425467143/kiki_normal.JPG",
-"email": "ezequielarakaki@hotmail.com",
-"emailVerified": false,
-"phoneNumber": null,
-"isAnonymous": false,
-"tenantId": null,
-"providerData": [
-{
-"uid": "304737497",
-"displayName": "Ezequiel Arakaki",
-"photoURL": "https://pbs.twimg.com/profile_images/1425467143/kiki_normal.JPG",
-"email": "ezequielarakaki@hotmail.com",
-"phoneNumber": null,
-"providerId": "twitter.com"
-}
-],
-"apiKey": "AIzaSyBK5jLHqMJ6BsSPhQ4mq53iy7kjCC0frxo",
-"appName": "[DEFAULT]",
-"authDomain": "unlz-vacunapp.firebaseapp.com",
-"stsTokenManager": {
-"apiKey": "AIzaSyBK5jLHqMJ6BsSPhQ4mq53iy7kjCC0frxo",
-"refreshToken":
-"AE0u-NcOWjaoHe7QqKCOFlg20NTZLtVj0X4jbsdtGfcNZU8WnKUjIcCGO7IcmkY9ZQOTb3hw0k9bF1kMNls21Aexzo4fNAl-1WKXqwCTr6apGToFs9QIpyr1L2V_IfBq2W8VIfHh3i3XljCRvAhs1zcmWysYM0s4gVj3dOJSHz_DHnXm1AusKoxPEsGQkfzvpnGuQV6NuhRcs8FcT1lo2A73_6YPNt9GaUEbQYzVGQkmvt3wYKWaIGkfnAKWpYbM1EwjyoGP_Xlf3P6XlDfkNAryxZQgJ3Iv3j9btcl3ctjrISMoJwc8yoc47hizOz3wQG6RL81cAKW4FWZFszSmwJBMAvKUG0LJkRYXQzQgJiJ3hp5roz0wdkc",
-"accessToken":
-"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzUwM2UwYWVjNTJkZGZiODk2NTIxYjkxN2ZiOGUyMGMxZjMzMDAiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiRXplcXVpZWwgQXJha2FraSIsInBpY3R1cmUiOiJodHRwczovL3Bicy50d2ltZy5jb20vcHJvZmlsZV9pbWFnZXMvMTQyNTQ2NzE0My9raWtpX25vcm1hbC5KUEciLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdW5sei12YWN1bmFwcCIsImF1ZCI6InVubHotdmFjdW5hcHAiLCJhdXRoX3RpbWUiOjE2MDE5MjU2NTUsInVzZXJfaWQiOiJQRWhFMmt6MG9WZVlwS053VFcwdkQ3NVhJYjQyIiwic3ViIjoiUEVoRTJrejBvVmVZcEtOd1RXMHZENzVYSWI0MiIsImlhdCI6MTYwMTkyNTY1NSwiZXhwIjoxNjAxOTI5MjU1LCJlbWFpbCI6ImV6ZXF1aWVsYXJha2FraUBob3RtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJ0d2l0dGVyLmNvbSI6WyIzMDQ3Mzc0OTciXSwiZW1haWwiOlsiZXplcXVpZWxhcmFrYWtpQGhvdG1haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoidHdpdHRlci5jb20ifX0.Jd4KqU0sL5dOHGvqmdTZDeeYgVKEjK1zECJd-XYEB5UMAy4rr8DDxv1EEgGQaO5HYJtcc-6VwSsa4myO92MBCRKbCX1Iqi_o5N7QQLTANgkfEdrKYkutIXyKKS4TaQRmqorz4pJR1L3epzPm4M8z8Wj08sTZ6eJFj3_ycCqo4_DQiVANidD9cmMX3xRlXfY8RakgBUTu2_3FUcffsQtHzNTtmpAw0aHm_xJeUP-xoltQsGC9JozMqP1qSkWyHuIRRI-liCGseZ0a3DfewD3c12vWqrZDE2-KMF4QHENrpGYPGn0nVy2qpO2mwYkBhHP5yVW_x6BaXJymFC0s0B2k_Q",
-"expirationTime": 1601929255000
-},
-"redirectEventId": null,
-"lastLoginAt": "1601925655563",
-"createdAt": "1601925211514",
-"multiFactor": {
-"enrolledFactors": []
-}
-} -->
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer #drawer [mode]='over'>I'm a drawer
+        <button type="button" (click)="drawer.toggle()" mat-button>qweqwe</button>
+    </mat-drawer>    
+    <mat-drawer-content>
+        <mat-toolbar [class.mat-elevation-z6]="true" color="primary">
+            <button type="button" (click)="drawer.toggle()" mat-button>
+                Toggle sidenav
+              </button>
+            <mat-icon style="cursor: pointer" (click)="previousUrl()"
+                *ngIf="(this.router.url != '/' && this.router.url != '/user')">keyboard_backspace
+            </mat-icon>
+        
+        
+            <span class="spacer"></span>
+            <span *ngIf="auth.user | async as user; else showLogin" style="display: contents;">
+                <div>
+          
+                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
+                        <mat-icon color="accent" >perm_identity</mat-icon>
+                        <h4 fxFlex fxHide.xs>Menu #1</h4>
+                    </button>     
+                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
+                        <mat-icon color="accent" >notifications_none</mat-icon>
+                        <h4 fxFlex fxHide.xs>Menu #2</h4>
+                    </button>               
+                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
+                        <mat-icon color="accent" >perm_identity</mat-icon>
+                        <h4 fxFlex fxHide.xs>Menu #3</h4>
+                    </button>   
+                    <button mat-mini-fab color="accent" style="transform: translate(0px, -7px);" [matMenuTriggerFor]="beforeMenu">
+                        <span style="font-size:25px">{{ user.email.slice(0,1).toUpperCase() }}</span>
+                    </button>        
+                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <p style="margin: 0px 20px;">{{ user.email }}</p>
+                        <mat-divider>
+                        </mat-divider>
+                        <button mat-menu-item>
+                            <mat-icon>perm_identity</mat-icon>
+                            <span>Mi perfil</span>
+                        </button>
+                        <button mat-menu-item (click)="logout()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            <span>Salir</span>
+                        </button>
+                    </mat-menu>
+                </div>
+        
+            </span>
+            <ng-template #showLogin>
+                <span>VacunAPP</span>
+            </ng-template>
+        </mat-toolbar>      
+    </mat-drawer-content>
+  </mat-drawer-container>

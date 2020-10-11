@@ -9,27 +9,27 @@
     </mat-toolbar>
     <div fxFlex>
         <mat-grid-list cols="2" rowHeight="90px" gutterSize="5px">
-            <mat-grid-tile>
+            <mat-grid-tile [class.mat-elevation-z16]="true">
                 VACUNAS
                 <fa-icon color="primary" class="menu-icon" [icon]="faCrutch"></fa-icon>
             </mat-grid-tile>
-            <mat-grid-tile>
+            <mat-grid-tile [class.mat-elevation-z16]="true">
                 PERSONAS
                 <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile>
+            <mat-grid-tile [class.mat-elevation-z16]="true">
                 CENTROS
                 <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile>
+            <mat-grid-tile [class.mat-elevation-z16]="true">
                 CONFIGURACION
                 <mat-icon color="primary" class="menu-icon">settings</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile routerLink="contact">
+            <mat-grid-tile [class.mat-elevation-z16]="true" routerLink="contact">
                 CONSULTAS
                 <mat-icon color="primary" class="menu-icon">phone</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile (click)="logOut()">
+            <mat-grid-tile [class.mat-elevation-z16]="true" (click)="logOut()">
                 SALIR
                 <mat-icon color="primary" class="menu-icon">exit_to_app</mat-icon>
             </mat-grid-tile>
