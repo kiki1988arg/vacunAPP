@@ -1,10 +1,18 @@
-img {
-  border-radius: 50%;
-  height: 40px;
-  margin: 10px;
-}
-
-
 .header-icon {
   padding: 14px;
+}
+
+mat-drawer {
+  position: fixed;
+  width: 300px;
+}
+
+.sidenav-logo {
+  height: 100px;
+  width: 40%;
+  margin: 25px auto;
+}
+
+mat-icon {
+  margin: auto;
 }

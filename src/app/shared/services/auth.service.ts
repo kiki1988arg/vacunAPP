@@ -1,73 +1,48 @@
-import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Injectable, } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { auth } from 'firebase';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { User } from '../interfaces/user';
+import { FacadeService } from './facade.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private user: Observable<firebase.User>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   constructor(
-    private ngZone: NgZone,
     private router: Router,
-    private firebaseAuth: AngularFireAuth,
-    private _snackBar: MatSnackBar) {
-    this.user = firebaseAuth.authState;
-    this.firebaseAuth.idToken.subscribe(token => {
-      localStorage.setItem('token', (token) ? token : null);
-    })
+    private facade: FacadeService
+  ) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
 
-  signup(email: string, password: string) {
-    this.firebaseAuth
-      .createUserWithEmailAndPassword(email, password)
+  signIn(user: User) {
+    return this.facade.signIn(user)
   }
 
-  login(email: string, password: string) {
-    this.firebaseAuth
-      .signInWithEmailAndPassword(email, password)
-      .catch((error: firebase.FirebaseError) => {
-        if (error.code == AUTH_ERROR_CODE.Not_found)
-          this._snackBar.open("Verificá el mail ingresado sea el correcto", "ERROR", {
-            duration: 5000,
-          });
-        if (error.code == AUTH_ERROR_CODE.Wrong_password)
-          this._snackBar.open("Verificá el mail / password ingresado sea el correcto", "ERROR", {
-            duration: 5000,
-          });
-        if (error.code == AUTH_ERROR_CODE.Too_many_requests)
-          this._snackBar.open("Has intentado entrar a la cuenta muchas veces", "ERROR", {
-            duration: 5000,
-          });
-      })
+  login(loginForm) {
+    this.facade.Login(loginForm).subscribe(
+      (user) => {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        this.router.navigate(['/user']);
+      });
   }
 
-  loginWithGoogle() {
-    this.firebaseAuth.signInWithPopup(new auth.GoogleAuthProvider());
-  }
-  loginWithTwitter() {
-    this.firebaseAuth.signInWithPopup(new auth.TwitterAuthProvider());
-  }
-  loginWithFacebook() {
-    this.firebaseAuth.signInWithPopup(new auth.FacebookAuthProvider());
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
-  getToken(): string {
-    return localStorage.getItem('token');
-  }
-
-  signOut() {
-    return this.firebaseAuth.signOut().then(() => {
-      localStorage.removeItem('token');
-      this.ngZone.run(() => {
-        this.router.navigate(['']);
-      })
-    })
+  logOut() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('user');
+    this.currentUserSubject.next(null);
+    this.router.navigate(['/']);
   }
 }
 

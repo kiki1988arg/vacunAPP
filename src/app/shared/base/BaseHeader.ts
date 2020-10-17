@@ -7,14 +7,11 @@ import { Location } from '@angular/common';
 @Directive()
 export class BaseHeader {
     showPreviousButton = false;
-    constructor(private location: Location, public router: Router, public auth: AngularFireAuth) { }
+    constructor(private location: Location, public router: Router) { }
 
     ngOnInit(): void {
     }
     previousUrl() {
         this.location.back()
-    }
-    logout() {
-        this.auth.signOut();
     }
 }

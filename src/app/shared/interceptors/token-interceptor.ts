@@ -8,16 +8,19 @@ import { AuthService } from '../services/auth.service';
 export class TokenInterceptor implements HttpInterceptor {
 
     constructor(public auth: AuthService) { }
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        req = req.clone({
-            setHeaders: {
-                Authorization: `Bearer ${this.auth.getToken()}`
-            }
-        });
-        return next.handle(req).pipe(catchError((err: HttpErrorResponse) => {
-            if (err.status == 401) this.auth.signOut();
-            return throwError(err);
-        }));
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        // add auth header with jwt if user is logged in and request is to the api url
+        const currentUser = this.auth.currentUserValue;
+        const isLoggedIn = currentUser && currentUser.token;
+        if (isLoggedIn) {
+            request = request.clone({
+                setHeaders: {
+                    Authorization: `Bearer ${currentUser.token}`
+                }
+            });
+        }
+
+        return next.handle(request);
     }
 
 }

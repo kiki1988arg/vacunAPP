@@ -2,31 +2,25 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogedinGuard implements CanActivate {
   constructor(private router: Router,
-    private firebaseAuth: AngularFireAuth,
-    private ngZone: NgZone) {
+    private authService: AuthService) {
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return new Promise((resolve, reject) => {
-      this.firebaseAuth.onAuthStateChanged((user: firebase.User) => {
-        if (user) {
-          this.ngZone.run(() => {
-            this.router.navigate(['/user']);
-          })
+    const currentUser = this.authService.currentUserValue;
+    if (currentUser) {
+      this.router.navigate(['/user'], { queryParams: { returnUrl: state.url } });
+      return true;
 
-          resolve(false);
-
-        } else {
-          resolve(true);
-        }
-      });
-    });
+    }
+    return true;
   }
 }
+

@@ -1,20 +1,7 @@
-<div fxLayout="column" fxLayoutAlign="space-evenly center">
-  <img fxFlex class="logo" src="assets/icons/main-logo.png" />
+<div style="margin: 10vh;" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <img fxFlex class="logo" src="assets/icons/vacunAPP.png" />
 
   <button class="app-button" mat-raised-button color="accent" routerLink="/login">Ingresar</button>
-  <button class="app-button" mat-raised-button style="background-color: rgb(29, 161, 242);color:white"
-    (click)="loginWithTwitter()">
-    Ingresar con
-    twitter
-    <fa-icon [icon]="faTwitterSquare" class="social-icon"></fa-icon>
-  </button>
-  <button class="app-button" mat-raised-button style="background-color: #d93025;color:white"
-    (click)="loginWithGoogle()">Ingresar con gmail
-    <fa-icon [icon]="faEnvelopeSquare" class="social-icon"></fa-icon></button>
-  <button class="app-button" mat-raised-button style="background-color: #1877f2;color:white"
-    (click)="loginWithFacebook()">Ingresar con
-    facebook
-    <fa-icon [icon]="faFacebookSquare" class="social-icon"></fa-icon></button>
   <button class="app-button" mat-raised-button color="accent" routerLink="/sign-in">
     Crear cuenta
   </button>

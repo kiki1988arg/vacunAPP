@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MaterialModule } from './shared/modules/material/material.module';
@@ -15,13 +15,14 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { HeaderComponent } from './components/header/header.component';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserComponent } from './components/user/user.component';
 import { TokenInterceptor } from './shared/interceptors/token-interceptor';
 import { ContactComponent } from './components/user/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExitComponent } from './components/user/dialogs/exit/exit.component';
 import { CommonModule } from '@angular/common';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+import { CloseButtonComponent } from './shared/components/close-button/close-button.component';
 
 
 @NgModule({
@@ -32,19 +33,22 @@ import { CommonModule } from '@angular/common';
     UserComponent,
     ContactComponent,
     LoginComponent,
-    ExitComponent],
+    ExitComponent,
+    CloseButtonComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    // NoopAnimationsModule,
     HttpClientModule,
     MaterialModule,
     FlexLayoutModule,
     FontAwesomeModule,
     ReactiveFormsModule,
     CommonModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
@@ -54,7 +58,8 @@ import { CommonModule } from '@angular/common';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }],
+  },
+  { provide: LOCALE_ID, useValue: 'es-AR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

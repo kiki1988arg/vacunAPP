@@ -18,14 +18,4 @@ export class HomeComponent implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void { }
-
-  loginWithGoogle() {
-    this.authService.loginWithGoogle();
-  }
-  loginWithTwitter() {
-    this.authService.loginWithTwitter();
-  }
-  loginWithFacebook() {
-    this.authService.loginWithFacebook();
-  }
 }

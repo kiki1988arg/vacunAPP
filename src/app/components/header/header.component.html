@@ -1,37 +1,44 @@
-
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-    <mat-drawer #drawer [mode]='over'>I'm a drawer
-        <button type="button" (click)="drawer.toggle()" mat-button>qweqwe</button>
-    </mat-drawer>    
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer [@.disabled]="true">
+        <div fxLayout="column">
+            <img class="sidenav-logo" src="assets/icons/vacunAPP.png" />
+            <mat-list>
+                <mat-list-item>Opción 1</mat-list-item>
+                <mat-list-item>Opción 2</mat-list-item>
+                <mat-list-item>Opción 3</mat-list-item>
+            </mat-list>
+            <button type="button" (click)="drawer.toggle()" mat-button>
+                Cerrar
+            </button>
+        </div>
+    </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar [class.mat-elevation-z6]="true" color="primary">
-            <button type="button" (click)="drawer.toggle()" mat-button>
-                Toggle sidenav
-              </button>
-            <mat-icon style="cursor: pointer" (click)="previousUrl()"
-                *ngIf="(this.router.url != '/' && this.router.url != '/user')">keyboard_backspace
-            </mat-icon>
-        
-        
-            <span class="spacer"></span>
-            <span *ngIf="auth.user | async as user; else showLogin" style="display: contents;">
+            <!-- *ngIf="currentUser.user | async as user; else showLogin"  -->
+            <span *ngIf="this.authService.currentUser | async as user; else showLogin" style="display: contents;">
+                <button type="button" (click)="drawer.toggle()" mat-button>
+                    <mat-icon>dehaze</mat-icon>
+                </button>
+                <span class="spacer"></span>
                 <div>
-          
-                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
-                        <mat-icon color="accent" >perm_identity</mat-icon>
-                        <h4 fxFlex fxHide.xs>Menu #1</h4>
-                    </button>     
-                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
-                        <mat-icon color="accent" >notifications_none</mat-icon>
-                        <h4 fxFlex fxHide.xs>Menu #2</h4>
-                    </button>               
-                    <button mat-button [matMenuTriggerFor]="beforeMenu" class="header-icon">
-                        <mat-icon color="accent" >perm_identity</mat-icon>
-                        <h4 fxFlex fxHide.xs>Menu #3</h4>
-                    </button>   
-                    <button mat-mini-fab color="accent" style="transform: translate(0px, -7px);" [matMenuTriggerFor]="beforeMenu">
-                        <span style="font-size:25px">{{ user.email.slice(0,1).toUpperCase() }}</span>
-                    </button>        
+
+                    <button mat-button class="header-icon">
+                        <mat-icon color="accent">perm_identity</mat-icon>
+                        <h4 style="font-size:19px" fxFlex fxHide.lt-lg>Menu #1</h4>
+                    </button>
+                    <button mat-button class="header-icon">
+                        <mat-icon color="accent">notifications_none</mat-icon>
+                        <h4 style="font-size:19px" fxFlex fxHide.lt-lg>Menu #2</h4>
+                    </button>
+                    <button mat-button class="header-icon">
+                        <mat-icon color="accent">perm_identity</mat-icon>
+                        <h4 style="font-size:19px" fxFlex fxHide.lt-lg>Menu #3</h4>
+                    </button>
+                    <button mat-mini-fab color="accent" style="transform: translate(0px, -7px);"
+                        [matMenuTriggerFor]="beforeMenu">
+                        <span
+                            style="font-size:23px">{{ user.name.slice(0,1).toUpperCase() }}{{ user.lastName.slice(0,1).toUpperCase() }}</span>
+                    </button>
                     <mat-menu #beforeMenu="matMenu" xPosition="before">
                         <p style="margin: 0px 20px;">{{ user.email }}</p>
                         <mat-divider>
@@ -40,17 +47,18 @@
                             <mat-icon>perm_identity</mat-icon>
                             <span>Mi perfil</span>
                         </button>
-                        <button mat-menu-item (click)="logout()">
+                        <button mat-menu-item (click)="logOut()">
                             <mat-icon>exit_to_app</mat-icon>
                             <span>Salir</span>
                         </button>
                     </mat-menu>
                 </div>
-        
+
             </span>
             <ng-template #showLogin>
+                <span class="spacer"></span>
                 <span>VacunAPP</span>
             </ng-template>
-        </mat-toolbar>      
+        </mat-toolbar>
     </mat-drawer-content>
-  </mat-drawer-container>
+</mat-drawer-container>

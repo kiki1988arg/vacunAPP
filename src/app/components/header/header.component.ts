@@ -1,7 +1,5 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +8,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class HeaderComponent implements OnInit {
   showPreviousButton = false;
-  constructor(private location: Location, public router: Router, public auth: AngularFireAuth) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
-  previousUrl() {
-    this.location.back(); // <-- go back to previous location on cancel
-  }
-  logout() {
-    this.auth.signOut();
+
+  logOut() {
+    this.authService.logOut();
   }
 }

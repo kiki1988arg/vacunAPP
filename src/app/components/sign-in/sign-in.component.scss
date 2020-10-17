@@ -6,6 +6,13 @@ mat-form-field {
     width: 100%
 }
 
-mat-radio-group {
+mat-radio-button {
+    display: flex;
+    flex-direction: column;
     margin-top: 15px
+}
+
+.sign-in-button {
+    float: right;
+    margin: 5px;
 }

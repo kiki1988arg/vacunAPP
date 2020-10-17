@@ -12,7 +12,7 @@ import { ExitComponent } from './dialogs/exit/exit.component';
 })
 export class UserComponent implements OnInit {
   faCrutch = faCrutch;
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
     public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
     const dialogRef = this.dialog.open(ExitComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) this.authService.signOut();
+      if (result) this.authService.logOut();
     });
 
   }

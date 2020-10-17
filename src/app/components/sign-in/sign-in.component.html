@@ -1,21 +1,25 @@
-    <mat-card>
-        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-            <mat-card-header>
-                <mat-card-title>Registrate</mat-card-title>
-                <mat-card-subtitle>Completa el formulario</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
+<mat-card>
+    <app-close-button></app-close-button>
+    <mat-card-header>
+        <mat-card-title>Registrate en VACUNAPP
+            <span class="spacer"></span>
+        </mat-card-title>
+        <mat-card-subtitle>Completá tu registro en 3 simples pasos</mat-card-subtitle>
+    </mat-card-header>
+    <mat-vertical-stepper [linear]="false" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Ingresá tu mail y un password que contenga más de 6 caracteres</ng-template>
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>e-mail(*)</mat-label>
                         <input matInput placeholder="e-mail" formControlName="email" maxlength="50">
                         <mat-icon matSuffix>mail_outline</mat-icon>
                         <mat-hint>ejemplo@hotmail.com</mat-hint>
-                        <mat-error *ngIf="this.loginFormControls.email.errors?.required">Campo requerido
+                        <mat-error *ngIf="this.firstFormControls.email.errors?.required">Campo requerido
                         </mat-error>
-                        <mat-error *ngIf="this.loginFormControls.email.errors?.email">Formato de mail incorrecto
+                        <mat-error *ngIf="this.firstFormControls.email.errors?.email">Formato de mail incorrecto
                         </mat-error>
-
                     </mat-form-field>
                 </p>
                 <p>
@@ -25,38 +29,87 @@
                             maxlength="25">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-hint>Introduzca un password mayor a 6 caracteres</mat-hint>
-                        <mat-error *ngIf="this.loginFormControls.password.hasError">Introduzca un password mayor a 6
+                        <mat-error *ngIf="this.firstFormControls.password.hasError">Introduzca un password mayor a 6
                             caracteres
                         </mat-error>
                     </mat-form-field>
                 </p>
-                <!-- <p>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Repita el password(*)</mat-label>
-                        <input matInput placeholder="repetí el password" formControlName="passwordVerification"
-                            maxlength="25">
-                        <mat-icon matSuffix>vpn_key</mat-icon>
-                        <mat-hint>Repita el password ingresado</mat-hint>
-                        <mat-error *ngIf="this.loginFormControls.passwordVerification.hasError">No coinside con el
-                            password ingresado
-                            anteriormente</mat-error>
-                    </mat-form-field>
-                </p> -->
-                <!-- <label>Indique a que entidad pertenece:</label>
                 <div>
-                    <mat-radio-group>
-                        <mat-radio-button color="primary" value="Personal">Personal</mat-radio-button>
-                        <mat-radio-button color="primary" value="Medic">Médico</mat-radio-button>
-                        <mat-radio-button color="primary" value="Institution">Institución</mat-radio-button>
+                    <button mat-button class="sign-in-button" color="primary" matStepperNext>Siguiente</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Completá los siguientes campos</ng-template>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre(*)</mat-label>
+                        <input matInput placeholder="Nombre" formControlName="name" maxlength="50">
+                        <mat-icon matSuffix>mail_outline</mat-icon>
+                        <mat-error>Campo requerido
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Apellido(*)</mat-label>
+                        <input matInput placeholder="Apellido" formControlName="lastName" maxlength="50">
+                        <mat-icon matSuffix>mail_outline</mat-icon>
+                        <mat-error>Campo requerido
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-label>Género(*)</mat-label>
+                    <mat-radio-group formControlName="gender">
+                        <mat-radio-button value="M">Masculino</mat-radio-button>
+                        <mat-radio-button value="F">Femenino</mat-radio-button>
+                        <mat-radio-button value="O">Otro</mat-radio-button>
                     </mat-radio-group>
-                </div> -->
-                <mat-checkbox color="primary" class="example-margin">Acepto terminos y condiciones</mat-checkbox>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>DNI(*)</mat-label>
+                        <input type="text" matInput placeholder="DNI" formControlName="NIF" maxlength=8>
+                        <mat-icon matSuffix>mail_outline</mat-icon>
+                        <mat-error>Campo requerido y númerico
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Fecha de nacimiento(*)</mat-label>
 
-            </mat-card-content>
-            <mat-card-actions>
-                <button type="submit" mat-stroked-button [disabled]="!signInForm.valid" class="float-right"
-                    color="primary" mat-button>Crear cuenta</button>
-            </mat-card-actions>
-        </form>
-    </mat-card>
-
+                        <input matInput formControlName="bornDate" [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker [startAt]="startDate" #picker touchUi></mat-datepicker>
+                        <mat-error>Campo requerido
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <div>
+                    <button mat-button class="sign-in-button" color="primary" matStepperNext>Siguiente</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="thirdFormGroup" (ngSubmit)="onSubmit()">
+                <ng-template matStepLabel>Foto</ng-template>
+                <mat-label>Para asegurarnos de tu identidad, te pedimos una foto de tu rostro con el DNI</mat-label>
+                <p>
+                    <input formControlName="photoUrl" style="display: none" type="file" (change)="onFileChanged($event)"
+                        #fileInput>
+                    <button type='button' mat-raised-button color="accent" (click)="fileInput.click()">Subir
+                        foto</button>
+                    <img [src]="url" height="200"> <br />
+                </p>
+                <div>
+                    <mat-checkbox formControlName="acceptTerms" color="primary">Acepto terminos y
+                        condiciones</mat-checkbox>
+                </div>
+                <button mat-button class="sign-in-button" type="submit"
+                    [disabled]="!thirdFormGroup.valid || this.sendingInfo">Registrarse</button>
+            </form>
+        </mat-step>
+    </mat-vertical-stepper>

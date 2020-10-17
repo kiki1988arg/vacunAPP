@@ -17,14 +17,14 @@ export const slideInAnimation = trigger('routeAnimations', [
         left: 0,
         width: '100%',
         opacity: 0,
-        transform: 'scale(0) translateY(100%)',
+        transform: 'scale(0)',
       }),
     ], { optional: true }),
     // Animate the new page in
     query(':enter', [
       animate(
-        '100ms ease',
-        style({ opacity: 1, transform: 'scale(1) translateY(0)' })
+        '50ms ease',
+        style({ opacity: 1, transform: 'scale(1)' })
       ),
     ], { optional: true }),
   ]),

@@ -42,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 
@@ -90,7 +91,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMomentDateModule
   ],
 })
 export class MaterialModule { }
