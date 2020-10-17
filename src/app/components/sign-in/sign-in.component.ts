@@ -100,7 +100,7 @@ export class SignInComponent implements OnInit {
           duration: 5000,
         });
       }, (err) => {
-        this._snackBar.open("Lo siento hubo un error al registrarte, intentalo nuevamente", "ERROR", {
+        this._snackBar.open("Lo siento hubo un error al registrarte, verificá tus datos e intentalo nuevamente", "ERROR", {
           duration: 5000,
         });
         this.sendingInfo = false

@@ -6,7 +6,7 @@
         </mat-card-title>
         <mat-card-subtitle>Completá tu registro en 3 simples pasos</mat-card-subtitle>
     </mat-card-header>
-    <mat-vertical-stepper [linear]="false" #stepper>
+    <mat-vertical-stepper [linear]="true" #stepper [@.disabled]="true">
         <mat-step [stepControl]="firstFormGroup">
             <form [formGroup]="firstFormGroup">
                 <ng-template matStepLabel>Ingresá tu mail y un password que contenga más de 6 caracteres</ng-template>

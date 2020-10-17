@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loginError = false;
   loginForm = this.fb.group({
     userName: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
@@ -19,7 +20,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.loginForm.value);
+
+    this.authService.login(this.loginForm.value).subscribe(
+      result => { },
+      error => {
+        this.loginError = true;
+      },
+    );
   }
 
   get loginFormControls() { return this.loginForm.controls; }

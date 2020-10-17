@@ -30,6 +30,7 @@
                     </mat-error>
                 </mat-form-field>
             </p>
+            <p style="color:red;margin:5px" *ngIf="this.loginError">Usuario o password incorrecto.</p>
         </mat-card-content>
         <mat-card-actions>
             <button type="submit" mat-stroked-button [disabled]="!loginForm.valid" class="float-right" color="primary"

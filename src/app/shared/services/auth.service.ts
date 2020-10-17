@@ -2,6 +2,7 @@ import { Injectable, } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { User } from '../interfaces/user';
 import { FacadeService } from './facade.service';
 
@@ -26,12 +27,17 @@ export class AuthService {
   }
 
   login(loginForm) {
-    this.facade.Login(loginForm).subscribe(
-      (user) => {
+    return this.facade.Login(loginForm).pipe(map(
+      user => {
         localStorage.setItem('user', JSON.stringify(user));
         this.currentUserSubject.next(user);
         this.router.navigate(['/user']);
-      });
+        return user;
+      },
+      err => {
+        return err
+      }))
+
   }
 
   public get currentUserValue(): User {
