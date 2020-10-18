@@ -1,0 +1,22 @@
+<mat-list>
+    <app-close-button></app-close-button>
+
+    <div mat-subheader>Personal</div>
+    <mat-list-item *ngFor="let folder of folders">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>{{folder.name}}</div>
+        <div mat-line> {{folder.updated}} </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Personas a cargo</div>
+    <mat-list-item *ngFor="let note of notes">
+        <mat-icon mat-list-icon>note</mat-icon>
+        <div mat-line>{{note.name}}</div>
+        <div mat-line> {{note.updated}} </div>
+    </mat-list-item>
+</mat-list>
+<button style="position: fixed;
+bottom: 15px;
+right: 15px;" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+    <mat-icon>add</mat-icon>
+</button>

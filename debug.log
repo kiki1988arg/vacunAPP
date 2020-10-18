@@ -94,3 +94,7 @@
 [1017/143831.555:ERROR:filesystem_win.cc(116)] GetFileAttributes C:\Users\ezequ\AppData\Local\Temp\.profile\Crashpad\reports\368d447e-b5c2-4886-88a3-74431890827a.dmp: El sistema no puede encontrar el archivo especificado. (0x2)
 [1017/143831.556:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
 [1017/220605.485:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1018/021036.163:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1018/152349.117:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1018/174803.137:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1018/181032.329:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)

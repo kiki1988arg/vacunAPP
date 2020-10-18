@@ -30,8 +30,10 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-regular-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@types/ol": "^6.4.1",
     "firebase": "^7.23.0",
     "moment": "^2.29.1",
+    "ol": "^6.4.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.3",
     "zone.js": "~0.10.2"

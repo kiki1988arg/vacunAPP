@@ -95,8 +95,11 @@ mat-card {
 }
 
 @media (min-width: 768px) {
-  mat-card {
+
+  mat-card,
+  mat-list {
     max-width: 75%;
+    margin: auto;
   }
 }
 

@@ -23,7 +23,8 @@ import { ExitComponent } from './components/user/dialogs/exit/exit.component';
 import { CommonModule } from '@angular/common';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { CloseButtonComponent } from './shared/components/close-button/close-button.component';
-
+import { CenterComponent } from './components/user/center/center.component';
+import { NotebookComponent } from './components/user/notebook/notebook.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -35,6 +36,8 @@ import { CloseButtonComponent } from './shared/components/close-button/close-but
     LoginComponent,
     ExitComponent,
     CloseButtonComponent,
+    CenterComponent,
+    NotebookComponent
   ],
   imports: [
     BrowserModule,

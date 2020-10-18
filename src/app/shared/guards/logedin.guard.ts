@@ -16,7 +16,7 @@ export class LogedinGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
-      this.router.navigate(['/user'], { queryParams: { returnUrl: state.url } });
+      this.router.navigate(['/user']);
       return true;
 
     }
