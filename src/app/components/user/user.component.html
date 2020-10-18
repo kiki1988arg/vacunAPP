@@ -5,34 +5,27 @@
             src="https://vignette.wikia.nocookie.net/among-us-wiki/images/a/ab/Cyan.png/revision/latest/scale-to-width-down/147?cb=20200927084517">
     </div>
     <mat-toolbar fxFlex style="display: block;
-    text-align: center;">
+    text-align: center;    background: black;
+    color: white;">
         {{this.authService.currentUserValue.name}} {{this.authService.currentUserValue.lastName}}
     </mat-toolbar>
     <div fxFlex>
-        <mat-grid-list cols="2" rowHeight="90px" gutterSize="5px">
-            <mat-grid-tile class="disabled" [class.mat-elevation-z16]="true">
+        <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
+            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
                 CALENDARIOS
                 <fa-icon color="primary" class="menu-icon" [icon]="faCrutch"></fa-icon>
             </mat-grid-tile>
-            <mat-grid-tile class="disabled" [class.mat-elevation-z16]="true">
+            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
                 MIS LIBRETAS
                 <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile class="disabled" [class.mat-elevation-z16]="true">
+            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
                 CENTROS
                 <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
             </mat-grid-tile>
-            <mat-grid-tile class="disabled" [class.mat-elevation-z16]="true">
+            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
                 CONFIGURACION
                 <mat-icon color="primary" class="menu-icon">settings</mat-icon>
-            </mat-grid-tile>
-            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true" routerLink="contact">
-                CONSULTAS
-                <mat-icon color="primary" class="menu-icon">phone</mat-icon>
-            </mat-grid-tile>
-            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true" (click)="logOut()">
-                SALIR
-                <mat-icon color="primary" class="menu-icon">exit_to_app</mat-icon>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
