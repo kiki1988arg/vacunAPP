@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { User } from 'src/app/shared/interfaces/user';
+import { User } from 'src/app/shared/interfaces/interfaces';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FacadeService } from 'src/app/shared/services/facade.service';
 @Component({

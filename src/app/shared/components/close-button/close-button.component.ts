@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-close-button',
   template: `
-  <mat-icon (click)="onClose()" style="float:right;cursor:pointer;">close</mat-icon>
+  <mat-icon (click)="onClose()" style="font-size:28px;float:right;cursor:pointer;">close</mat-icon>
   `,
   styles: [
   ]

@@ -7,6 +7,14 @@
 
 mat-grid-tile {
     cursor: pointer;
+    background: lightblue;
+}
+
+mat-grid-tile div {
+    width: 100%;
+    vertical-align: center;
+    text-align: center;
+    margin-top: 12px;
 }
 
 img {
@@ -18,11 +26,9 @@ img {
 }
 
 .menu-icon {
-    height: 36px;
-    font-size: 33px;
-    position: absolute;
-    left: -1px;
+    font-size: 50px;
     color: #674ea7;
+    transform: translate(-12px, 3px);
 }
 
 mat-toolbar {

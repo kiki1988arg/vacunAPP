@@ -25,6 +25,7 @@ import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { CloseButtonComponent } from './shared/components/close-button/close-button.component';
 import { CenterComponent } from './components/user/center/center.component';
 import { NotebookComponent } from './components/user/notebook/notebook.component';
+import { CenterDialogComponent } from './components/user/dialogs/center-dialog/center-dialog.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -37,7 +38,8 @@ import { NotebookComponent } from './components/user/notebook/notebook.component
     ExitComponent,
     CloseButtonComponent,
     CenterComponent,
-    NotebookComponent
+    NotebookComponent,
+    CenterDialogComponent
   ],
   imports: [
     BrowserModule,

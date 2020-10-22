@@ -90,10 +90,6 @@ body {
   float: right
 }
 
-mat-card {
-  margin: auto;
-}
-
 @media (min-width: 768px) {
 
   mat-card,
@@ -103,9 +99,18 @@ mat-card {
   }
 }
 
+mat-card,
+mat-list {
+  margin: auto;
+}
+
 
 mat-card {
   width: 85%;
+}
+
+mat-list {
+  width: 95%;
 }
 
 .mat-drawer-backdrop {

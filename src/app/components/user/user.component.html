@@ -1,8 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center" [ngStyle.xs]="{'width': '95%'}" [ngStyle]="{'width': '60%'}"
     style="margin:auto">
     <div style="margin:15px auto" fxFlex>
-        <img
-            src="https://vignette.wikia.nocookie.net/among-us-wiki/images/a/ab/Cyan.png/revision/latest/scale-to-width-down/147?cb=20200927084517">
+        <img src="assets/icons/no-profile.png">
     </div>
     <mat-toolbar fxFlex style="display: block;
     text-align: center;    background: black;
@@ -12,20 +11,42 @@
     <div fxFlex>
         <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
             <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
-                CALENDARIOS
-                <fa-icon color="primary" class="menu-icon" [icon]="faCrutch"></fa-icon>
+                <div>
+                    <p>
+                        <mat-icon matBadgePosition="before" matBadge="3" matBadgeColor="warn" matBadgeSize="medium"
+                            color="primary" class="menu-icon">event_available
+                        </mat-icon>
+                    </p>
+
+                    <p>CALENDARIOS</p>
+                </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="notebook" [class.mat-elevation-z16]="true">
-                MIS LIBRETAS
-                <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
+                <div>
+                    <p>
+                        <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
+                    </p>
+
+                    <p>MIS LIBRETAS</p>
+                </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="center" [class.mat-elevation-z16]="true">
-                CENTROS
-                <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
+                <div>
+                    <p>
+                        <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
+                    </p>
+
+                    <p>CENTROS</p>
+                </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
-                CONFIGURACION
-                <mat-icon color="primary" class="menu-icon">settings</mat-icon>
+                <div>
+                    <p>
+                        <mat-icon color="primary" class="menu-icon">settings</mat-icon>
+                    </p>
+
+                    <p>CONFIGURACION (POR DEFINIR)</p>
+                </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>

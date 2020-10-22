@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../interfaces/user';
+import { User } from '../interfaces/interfaces';
 import { FacadeService } from './facade.service';
 
 @Injectable({

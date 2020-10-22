@@ -14,3 +14,13 @@ export interface loginForm {
     email: string;
     password: string;
 }
+
+export interface Institute {
+    name:string;
+    address:string;
+    locale:string;
+    time:string;
+    lat:string;
+    long:string;
+    phone:string;
+}

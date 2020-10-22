@@ -9,17 +9,17 @@ export class NotebookComponent implements OnInit {
   folders: any[] = [
     {
       name: 'Yo',
-      updated: new Date('1/1/16'),
+      updated: "40 años",
     }
   ];
   notes: any[] = [
     {
       name: 'Hijo #1',
-      updated: new Date('2/20/16'),
+      updated: "1 año 3 meses",
     },
     {
       name: 'Hijo #2',
-      updated: new Date('1/18/16'),
+      updated: "6 año 2 meses",
     }
   ];
   constructor() { }
