@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { CenterComponent } from './components/user/center/center.component';
 import { ContactComponent } from './components/user/contact/contact.component';
+import { NotebookCreateComponent } from './components/user/notebook/create/notebook-create/notebook-create.component';
 import { NotebookComponent } from './components/user/notebook/notebook.component';
 import { UserComponent } from './components/user/user.component';
 import { AuthGuard } from './shared/guards/auth.guard';
@@ -27,7 +28,11 @@ const routes: Routes = [
         path: 'center', component: CenterComponent, data: { animation: 'center' },
       },
       {
-        path: 'notebook', component: NotebookComponent, data: { animation: 'notebook' },
+        path: 'notebook',
+        children: [
+          { path: '', component: NotebookComponent, data: { animation: 'notebook' }},
+          { path: 'create', component: NotebookCreateComponent, data: { animation: 'NotebookCreate' }}
+        ],
       }]
   },
 ];

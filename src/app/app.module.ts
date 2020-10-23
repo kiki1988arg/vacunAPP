@@ -26,6 +26,7 @@ import { CloseButtonComponent } from './shared/components/close-button/close-but
 import { CenterComponent } from './components/user/center/center.component';
 import { NotebookComponent } from './components/user/notebook/notebook.component';
 import { CenterDialogComponent } from './components/user/dialogs/center-dialog/center-dialog.component';
+import { NotebookCreateComponent } from './components/user/notebook/create/notebook-create/notebook-create.component';
 
 @NgModule({
   declarations: [AppComponent,
@@ -39,7 +40,8 @@ import { CenterDialogComponent } from './components/user/dialogs/center-dialog/c
     CloseButtonComponent,
     CenterComponent,
     NotebookComponent,
-    CenterDialogComponent
+    CenterDialogComponent,
+    NotebookCreateComponent
   ],
   imports: [
     BrowserModule,
