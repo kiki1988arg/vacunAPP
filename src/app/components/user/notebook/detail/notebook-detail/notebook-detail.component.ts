@@ -16,8 +16,8 @@ export class NotebookDetailComponent implements OnInit {
     , private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.person.Id = +this.activatedRoute.snapshot.params.Id;
-    this.facade.getPersonById(this.person.Id).subscribe(res => {
+    this.person.id = +this.activatedRoute.snapshot.params.Id;
+    this.facade.getPersonById(this.person.id).subscribe(res => {
       this.person = res;
     })
 
