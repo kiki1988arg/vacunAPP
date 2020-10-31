@@ -16,11 +16,29 @@ export interface loginForm {
 }
 
 export interface Institute {
-    name:string;
-    address:string;
-    locale:string;
-    time:string;
-    lat:string;
-    long:string;
-    phone:string;
+    name: string;
+    address: string;
+    locale: string;
+    time: string;
+    lat: string;
+    long: string;
+    phone: string;
+}
+
+export interface Vaccine {
+    Name: string;
+    Description: string;
+    Inyection: string;
+    Month: number;
+    ApplicationType: string;
+    ExtraInfo: string;
+}
+
+export interface Person {
+    id: number;
+    name: string;
+    lastName: string;
+    nif: string;
+    gender: string;
+    bornDate: Date;
 }

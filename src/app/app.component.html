@@ -1,14 +1,25 @@
-<app-header></app-header>
+<div fxLayout="column" fxFlexFill>
+  <div fxFlex>
 
-<div [@routeAnimations]="prepareRoute(outlet)">
-  <router-outlet #outlet="outlet"></router-outlet>
-</div>
+    <app-header></app-header>
 
-<mat-card class="update-the-app" *ngIf="this.updateAvailable">
-  <div style="text-align: center">
-    Hay una nueva versión disponible
-    <button class="update-button" (click)="updateToLatest()" mat-raised-button color="primary">
-      Actualizar
-    </button>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+
+    <mat-card class="update-the-app" *ngIf="this.updateAvailable">
+      <div style="text-align: center">
+        Hay una nueva versión disponible
+        <button class="update-button" (click)="updateToLatest()" mat-raised-button color="primary">
+          Actualizar
+        </button>
+      </div>
+    </mat-card>
   </div>
-</mat-card>
+
+
+  <footer class="footbar">
+    <p style="text-align: right;
+      padding: 14px 10px 0 0;">Powered by UNLZ.</p>
+  </footer>
+</div>

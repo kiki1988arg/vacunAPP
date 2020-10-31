@@ -21,13 +21,12 @@ export class TokenInterceptor implements HttpInterceptor {
         }
 
         return next.handle(request).pipe(
-            retry(2),
             catchError((error: HttpErrorResponse) => {
-              if (error.status == 401) {
-                // 401 handled in auth.interceptor
-                this.auth.logOut();     
-              }
-              return throwError(error);
+                if (error.status == 401) {
+                    // 401 handled in auth.interceptor
+                    this.auth.logOut();
+                }
+                return throwError(error);
             }));
     }
 

@@ -20,13 +20,21 @@ import { TokenInterceptor } from './shared/interceptors/token-interceptor';
 import { ContactComponent } from './components/user/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExitComponent } from './components/user/dialogs/exit/exit.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { CloseButtonComponent } from './shared/components/close-button/close-button.component';
 import { CenterComponent } from './components/user/center/center.component';
 import { NotebookComponent } from './components/user/notebook/notebook.component';
 import { CenterDialogComponent } from './components/user/dialogs/center-dialog/center-dialog.component';
 import { NotebookCreateComponent } from './components/user/notebook/create/notebook-create/notebook-create.component';
+import { BackButtonComponent } from './shared/components/back-button/back-button.component';
+import { VaccineComponent } from './components/user/vaccine/vaccine.component';
+import { MonthToYearPipe } from './shared/pipes/month-to-year.pipe';
+import { MonthPipe } from './shared/pipes/month.pipe';
+import { PricingComponent } from './components/pricing/pricing.component';
+import localeEsAr from '@angular/common/locales/es-AR';
+import { NotebookDetailComponent } from './components/user/notebook/detail/notebook-detail/notebook-detail.component';
+registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
   declarations: [AppComponent,
@@ -41,7 +49,14 @@ import { NotebookCreateComponent } from './components/user/notebook/create/noteb
     CenterComponent,
     NotebookComponent,
     CenterDialogComponent,
-    NotebookCreateComponent
+    NotebookCreateComponent,
+    BackButtonComponent,
+    VaccineComponent,
+    MonthToYearPipe,
+    MonthPipe,
+    PricingComponent,
+    NotebookDetailComponent,
+
   ],
   imports: [
     BrowserModule,

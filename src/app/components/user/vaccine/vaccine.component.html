@@ -1,0 +1,51 @@
+<mat-card>
+    <app-close-button></app-close-button>
+    <mat-card-header>
+        <mat-card-title>Vacunas</mat-card-title>
+        <mat-card-subtitle>Agrupadas por meses</mat-card-subtitle>
+    </mat-card-header>
+    <mat-accordion [@.disabled]="true">
+        <mat-expansion-panel *ngFor="let vaccine of vaccineList" [@.disabled]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Año: {{ vaccine.month | monthToYear}} | Mes: {{ vaccine.month | month}}
+                </mat-panel-title>
+                <mat-panel-description>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div style="margin: 30px 0;" *ngFor="let vac of vaccine.vaccines">
+                <b>{{ vac.name}}</b>
+                <p>{{ vac.description}}</p>
+                <p>{{ vac.inyection}}</p>
+                <p>{{ vac.applicationType}}</p>
+                <p style="color:red">{{ vac.extraInfo}}</p>
+                <mat-divider>
+                </mat-divider>
+            </div>
+            <mat-divider>
+            </mat-divider>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <!-- <mat-card-content>
+        <mat-card *ngFor="let vaccine of vaccineList">
+            <div style="background: #00ffc496;">
+                <h2> Año: {{ vaccine.month | monthToYear}} | Mes: {{ vaccine.month | month}}</h2>
+            </div>
+            <div style="margin: 30px 0;" *ngFor="let vac of vaccine.vaccines">
+                <b>{{ vac.name}}</b>
+                <p>{{ vac.description}}</p>
+                <p>{{ vac.inyection}}</p>
+                <p>{{ vac.applicationType}}</p>
+                <p style="color:red">{{ vac.extraInfo}}</p>
+                <mat-divider>
+                </mat-divider>
+            </div>
+
+        </mat-card>
+
+    </mat-card-content> -->
+    <mat-card-actions align="right">
+        <button color="warn" (click)="close()" mat-button>Cerrar</button>
+    </mat-card-actions>
+</mat-card>

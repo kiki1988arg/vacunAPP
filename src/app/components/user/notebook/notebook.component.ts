@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Person, User } from 'src/app/shared/interfaces/interfaces';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { FacadeService } from 'src/app/shared/services/facade.service';
 
 @Component({
   selector: 'app-notebook',
@@ -6,25 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notebook.component.scss']
 })
 export class NotebookComponent implements OnInit {
-  folders: any[] = [
-    {
-      name: 'Yo',
-      updated: "40 años",
-    }
+  me;
+  persons: Person[] = [
   ];
-  notes: any[] = [
-    {
-      name: 'Hijo #1',
-      updated: "1 año 3 meses",
-    },
-    {
-      name: 'Hijo #2',
-      updated: "6 año 2 meses",
-    }
-  ];
-  constructor() { }
+  constructor(private authService: AuthService
+    , private facade: FacadeService) { }
 
   ngOnInit(): void {
+    this.me = this.authService.currentUserValue;
+    this.facade.getPersons().subscribe(res => this.persons = res);
   }
 
 }

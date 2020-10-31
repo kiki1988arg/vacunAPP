@@ -1,0 +1,44 @@
+<mat-card>
+
+    <mat-card-header>
+        <div mat-card-avatar>
+            <app-back-button></app-back-button>
+        </div>
+        <mat-card-title>Detalle</mat-card-title>
+        <mat-card-subtitle>Información sobre la persona</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="column">
+            <div fxLayout="column">
+                <img src="assets/icons/no-profile.png">
+
+                <div style="margin:20px">
+
+                    <h3>Nombre: <b>{{this.person.name}}</b></h3>
+                    <h3>Apellido: <b>{{this.person.lastName}}</b></h3>
+                    <h3>DNI:<b>{{this.person.nif}}</b></h3>
+                    <h3>Fecha de nacimiento: <b>{{this.person.bornDate | date }}</b></h3>
+                    <h3>Sexo: <b>{{this.person.gender}}</b></h3>
+                </div>
+                <div style="margin:20px">
+                    <mat-divider>
+                    </mat-divider>
+                    <h1>Vacunas aplicadas</h1>
+                    <h1>(To do)</h1>
+                    <mat-selection-list #shoes>
+                        <mat-list-option color="primary" *ngFor="let shoe of typesOfShoes">
+                            {{shoe}}
+                        </mat-list-option>
+                    </mat-selection-list>
+
+                </div>
+            </div>
+
+        </div>
+        <sub>Recordar que las vacunas asignadas por usted mismo no tiene validez nacional</sub>
+
+    </mat-card-content>
+    <mat-card-actions align="right">
+        <button mat-button>GUARDAR</button>
+    </mat-card-actions>
+</mat-card>

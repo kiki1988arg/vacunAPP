@@ -5,21 +5,37 @@
         <app-close-button></app-close-button>
     </span>
     <div mat-subheader>Personal</div>
-    <mat-list-item *ngFor="let folder of folders">
-        <mat-icon mat-list-icon>folder</mat-icon>
-        <div mat-line>{{folder.name}}</div>
-        <div mat-line> {{folder.updated}} </div>
+    <mat-list-item>
+        <div mat-line>{{this.me.name}}</div>
+        <div mat-line> {{this.me.lastName}} </div>
+        <span class="spacer"></span>
     </mat-list-item>
     <mat-divider></mat-divider>
     <div mat-subheader>Personas a cargo</div>
-    <mat-list-item *ngFor="let note of notes">
-        <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>{{note.name}}</div>
-        <div mat-line> {{note.updated}} </div>
+    <mat-list-item *ngFor="let person of persons" [routerLink]="['detail', person.id]">
+        <div mat-list-icon>
+            <span class="notebook-profile" [ngStyle]="{'background':person.gender == 'M' ? '#5EB7E6' : '#f1a5eb' }">
+                {{ person.name.slice(0,1).toUpperCase() }}{{ person.lastName.slice(0,1).toUpperCase() }}
+            </span>
+        </div>
+        <div mat-line>{{person.name}} {{person.lastName}} - {{person.nif}} </div>
+        <div mat-line>{{person.bornDate | date}} </div>
+        <span class="spacer"></span>
+        <!-- <mat-icon>account_circle
+        </mat-icon>
+        <mat-icon>edit
+        </mat-icon> -->
+        <!-- <mat-icon color="warn">delete
+        </mat-icon> -->
     </mat-list-item>
+    <mat-list-item *ngIf="this.persons.length == 0" style="color:blue;text-decoration: underline;cursor: pointer;"
+        routerLink="create">
+        <p style="margin:auto;">Agregá personas</p>
+    </mat-list-item>
+
 </mat-list>
 <button style="position: fixed;
-bottom: 15px;
-right: 15px;" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-    <mat-icon routerLink="create">add</mat-icon>
+bottom: 30px;
+right: 15px;" mat-fab color="accent" routerLink="create" aria-label="Example icon button with a bookmark icon">
+    <mat-icon>add</mat-icon>
 </button>

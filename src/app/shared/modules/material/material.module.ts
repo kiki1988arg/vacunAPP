@@ -94,6 +94,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatGridListModule,
     MatMomentDateModule
   ],
+
 })
 export class MaterialModule { }
 
