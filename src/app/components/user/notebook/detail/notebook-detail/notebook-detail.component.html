@@ -9,10 +9,10 @@
     </mat-card-header>
     <mat-card-content>
         <div fxLayout="column">
-            <div fxLayout="column">
-                <img src="assets/icons/no-profile.png">
+            <div fxLayout="row" fxLayout.xs="column">
+                <img fxFlex="20" src="assets/icons/no-profile.png">
 
-                <div style="margin:20px">
+                <div fxFlex style="margin:10px">
 
                     <h3>Nombre: <b>{{this.person.name}}</b></h3>
                     <h3>Apellido: <b>{{this.person.lastName}}</b></h3>
@@ -20,25 +20,28 @@
                     <h3>Fecha de nacimiento: <b>{{this.person.bornDate | date }}</b></h3>
                     <h3>Sexo: <b>{{this.person.gender}}</b></h3>
                 </div>
-                <div style="margin:20px">
-                    <mat-divider>
-                    </mat-divider>
-                    <h1>Vacunas aplicadas</h1>
-                    <h1>(To do)</h1>
-                    <mat-selection-list #shoes>
-                        <mat-list-option color="primary" *ngFor="let shoe of typesOfShoes">
-                            {{shoe}}
-                        </mat-list-option>
-                    </mat-selection-list>
+            </div>
+            <div style="margin:10px 0px">
+                <mat-divider>
+                </mat-divider>
+                <h2>Historial de vacunas</h2>
+                <mat-list #shoes>
+                    <mat-list-item color="primary" *ngFor="let history of this.person.notebooks">
+                        <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
+                        <div mat-line>{{history.applicationDate | date }} {{history.center.name}}</div>
+                        <span class="spacer"></span>
+                        <mat-icon>remove_red_eye
+                        </mat-icon>
+                    </mat-list-item>
+                </mat-list>
 
-                </div>
             </div>
 
         </div>
         <sub>Recordar que las vacunas asignadas por usted mismo no tiene validez nacional</sub>
 
     </mat-card-content>
-    <mat-card-actions align="right">
+    <!-- <mat-card-actions align="right">
         <button mat-button>GUARDAR</button>
-    </mat-card-actions>
+    </mat-card-actions> -->
 </mat-card>

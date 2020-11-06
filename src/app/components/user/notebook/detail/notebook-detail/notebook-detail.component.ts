@@ -9,14 +9,14 @@ import { FacadeService } from 'src/app/shared/services/facade.service';
   styleUrls: ['./notebook-detail.component.scss']
 })
 export class NotebookDetailComponent implements OnInit {
-  person: Person = {} as Person;
+  person: any = {} as any;
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
   constructor(private facade: FacadeService
     , private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.person.id = +this.activatedRoute.snapshot.params.Id;
+    this.person.id = this.activatedRoute.snapshot.params.Id;
     this.facade.getPersonById(this.person.id).subscribe(res => {
       this.person = res;
     })

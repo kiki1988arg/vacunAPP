@@ -15,7 +15,7 @@ export class FacadeService {
   baseUrl = environment.url;
   signInUrl = this.baseUrl + 'User/SignIn';
   loginUrl = this.baseUrl + 'User/Login'
-  instituteUrl = this.baseUrl + 'Institute'
+  instituteUrl = this.baseUrl + 'Center'
   vacinneUrl = this.baseUrl + 'Vaccine/Group'
   personUrl = this.baseUrl + 'Person'
   constructor(private http: HttpClient) { }

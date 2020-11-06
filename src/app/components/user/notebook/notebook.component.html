@@ -12,7 +12,7 @@
     </mat-list-item>
     <mat-divider></mat-divider>
     <div mat-subheader>Personas a cargo</div>
-    <mat-list-item *ngFor="let person of persons" [routerLink]="['detail', person.id]">
+    <mat-list-item *ngFor="let person of persons" [routerLink]="['detail', person.nif]">
         <div mat-list-icon>
             <span class="notebook-profile" [ngStyle]="{'background':person.gender == 'M' ? '#5EB7E6' : '#f1a5eb' }">
                 {{ person.name.slice(0,1).toUpperCase() }}{{ person.lastName.slice(0,1).toUpperCase() }}
