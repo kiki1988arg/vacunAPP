@@ -24,19 +24,40 @@
             <div style="margin:10px 0px">
                 <mat-divider>
                 </mat-divider>
-                <h2>Historial de vacunas</h2>
-                <mat-list #shoes>
-                    <mat-list-item color="primary" *ngFor="let history of this.person.notebooks">
-                        <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
-                        <div mat-line>{{history.applicationDate | date }} {{history.center.name}}</div>
-                        <span class="spacer"></span>
-                        <mat-icon>remove_red_eye
-                        </mat-icon>
-                    </mat-list-item>
-                </mat-list>
+                <mat-tab-group animationDuration="0ms">
 
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="example-tab-icon">colorize</mat-icon>
+                            Pendientes
+                        </ng-template>
+                        <mat-list>
+                            <mat-list-item color="primary" *ngFor="let vaccine of this.person.vaccines">
+                                <div mat-line>{{vaccine.name}}</div>
+                                <div mat-line>año: {{ vaccine.month | monthToYear}} Mes:{{ vaccine.month | month}}</div>
+                                <span class="spacer"></span>
+                                <mat-icon style="color: dimgrey;">report</mat-icon>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="example-tab-icon">colorize</mat-icon>
+                            Aplicadas
+                        </ng-template>
+                        <mat-list>
+                            <mat-list-item color="primary" *ngFor="let history of this.person.notebooks">
+                                <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
+                                <div mat-line>{{history.applicationDate | date }} {{history.center.name}}</div>
+                                <span class="spacer"></span>
+                                <mat-icon style="color:teal">check
+                                </mat-icon>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-tab>
+
+                </mat-tab-group>
             </div>
-
         </div>
         <sub>Recordar que las vacunas asignadas por usted mismo no tiene validez nacional</sub>
 
