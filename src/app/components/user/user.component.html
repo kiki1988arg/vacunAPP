@@ -10,11 +10,11 @@
     </mat-toolbar>
     <div fxFlex>
         <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
-            <mat-grid-tile class="activeAPP" [class.mat-elevation-z16]="true">
+            <mat-grid-tile class="activeAPP" routerLink="calendar" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
-                        <mat-icon matBadgePosition="before" matBadge="3" matBadgeColor="warn" matBadgeSize="medium"
-                            color="primary" class="menu-icon">event_available
+                        <mat-icon matBadgePosition="before" matBadge="{{this.pendingVaccines}}" matBadgeColor="warn"
+                            matBadgeSize="medium" color="primary" class="menu-icon">event_available
                         </mat-icon>
                     </p>
 

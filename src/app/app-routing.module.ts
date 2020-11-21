@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { CalendarComponent } from './components/user/calendar/calendar.component';
 import { CenterComponent } from './components/user/center/center.component';
 import { ContactComponent } from './components/user/contact/contact.component';
 import { NotebookCreateComponent } from './components/user/notebook/create/notebook-create/notebook-create.component';
@@ -32,6 +33,9 @@ const routes: Routes = [
       },
       {
         path: 'center', component: CenterComponent, data: { animation: 'center' },
+      },
+      {
+        path: 'calendar', component: CalendarComponent, data: { animation: 'calendar' },
       },
       {
         path: 'vaccine', component: VaccineComponent, data: { animation: 'vaccine' },

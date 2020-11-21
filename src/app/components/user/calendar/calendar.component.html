@@ -1,0 +1,25 @@
+<mat-card>
+    <h1>Vacunas de los próximos 3 meses</h1>
+    <mat-list>
+        <mat-list-item *ngFor="let item of this.nextVaccines">
+            <div mat-list-icon>
+                <span class="notebook-profile" [ngStyle]="{'background':item.gender == 'M' ? '#5EB7E6' : '#f1a5eb' }">
+                    {{ item.personName.slice(0,1).toUpperCase() }}{{ item.personLastName.slice(0,1).toUpperCase() }}
+                </span>
+            </div>
+            <div mat-line> {{item.personName}} {{ item.personLastName}} </div>
+            <div mat-line>{{item.name}} Mes: {{item.month }} </div>
+            <span class="spacer"></span>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+
+<!-- {
+    "name": "Polio IPV",
+    "nif": "45123123",
+    "description": "Previene poliomelitis causada por los poliovirus tipo 1, 2 y 3 (trivalente).",
+    "inyection": null,
+    "personName": "HIja",
+    "personLastName": "Hija",
+    "month": 4
+  }, -->

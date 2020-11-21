@@ -34,6 +34,7 @@ import { MonthPipe } from './shared/pipes/month.pipe';
 import { PricingComponent } from './components/pricing/pricing.component';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { NotebookDetailComponent } from './components/user/notebook/detail/notebook-detail/notebook-detail.component';
+import { CalendarComponent } from './components/user/calendar/calendar.component';
 registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
@@ -56,6 +57,7 @@ registerLocaleData(localeEsAr, 'es-Ar');
     MonthPipe,
     PricingComponent,
     NotebookDetailComponent,
+    CalendarComponent,
 
   ],
   imports: [

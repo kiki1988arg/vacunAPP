@@ -18,6 +18,7 @@ export class FacadeService {
   instituteUrl = this.baseUrl + 'Center'
   vacinneUrl = this.baseUrl + 'Vaccine/Group'
   personUrl = this.baseUrl + 'Person'
+  notebookUrl = this.baseUrl + 'Notebook'
   constructor(private http: HttpClient) { }
 
   signIn(user: User): Observable<User> {
@@ -43,8 +44,17 @@ export class FacadeService {
     return this.http.get<Person>(this.personUrl + `/${id}`);
   }
 
-
   createUser(person) {
     return this.http.post<void>(this.personUrl, person)
   }
+
+  getNextVaccines(NIF: string) {
+    return this.http.get<any>(this.notebookUrl + `/${NIF}`);
+  }
+
+  getNextVaccinesCount() {
+    return this.http.get<number>(this.notebookUrl + `/count`);
+  }
+
+
 }

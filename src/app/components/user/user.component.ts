@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { faCrutch } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { FacadeService } from 'src/app/shared/services/facade.service';
 import { ExitComponent } from './dialogs/exit/exit.component';
 
 
@@ -12,10 +13,13 @@ import { ExitComponent } from './dialogs/exit/exit.component';
 })
 export class UserComponent implements OnInit {
   faCrutch = faCrutch;
+  pendingVaccines = 0;
   constructor(public authService: AuthService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private facadeService: FacadeService) { }
 
   ngOnInit(): void {
+    this.facadeService.getNextVaccinesCount().subscribe(res => this.pendingVaccines = res);
   }
 
   logOut() {
