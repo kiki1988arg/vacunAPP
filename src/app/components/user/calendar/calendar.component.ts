@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { groupBy, toArray } from 'lodash-es';
 import { FacadeService } from 'src/app/shared/services/facade.service';
+
 
 @Component({
   selector: 'app-calendar',
@@ -12,7 +14,11 @@ export class CalendarComponent implements OnInit {
   constructor(private facadeService: FacadeService) { }
 
   ngOnInit(): void {
-    this.facadeService.getNextVaccines("").subscribe((data) => this.nextVaccines = data);
+    this.facadeService.getNextVaccines("").subscribe(
+      (data) => {
+        this.nextVaccines = toArray(groupBy(data, 'nif'))
+      }
+    );
   }
 
 }

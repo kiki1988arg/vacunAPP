@@ -40,6 +40,21 @@ export class AuthService {
 
   }
 
+  loginProf(loginForm) {
+    return this.facade.LoginProf(loginForm).pipe(map(
+      user => {
+        localStorage.setItem('user', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        this.router.navigate(['/professional']);
+        return user;
+      },
+      err => {
+        return err
+      }))
+
+  }
+
+
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }

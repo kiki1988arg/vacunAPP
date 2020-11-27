@@ -8,6 +8,7 @@ export class User {
     gender: string;
     BornDate: Date;
     token?: string;
+    function: string;
 }
 
 export interface loginForm {
@@ -42,3 +43,14 @@ export interface Person {
     gender: string;
     bornDate: Date;
 }
+
+export interface Notebook {
+    id: number;
+    ApplicationDate: Date;
+    NIF: string;
+    VaccineId: number;
+    CenterId: number;
+    ProfessionalId: number;
+}
+
+

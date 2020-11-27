@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Confimar</h1>
+<div mat-dialog-content>
+    <p>Usted agregará manualmente una vacuna:</p>
+    <p>- {{this.vaccine.name}}</p>
+    <p>- {{this.vaccine.description}}</p>
+    <p>- {{this.vaccine.inyection}}</p>
+    <p>Esta vacuna no tendrá validez nacional hasta que no sea verificada por un profesional</p>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No, gracias</button>
+    <button mat-button [mat-dialog-close]="this.vaccine" cdkFocusInitial>Confirmar</button>
+</div>

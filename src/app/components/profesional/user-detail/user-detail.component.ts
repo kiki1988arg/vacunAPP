@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ConfirmNotebookDialogComponent } from 'src/app/shared/components/confirm-notebook-dialog/confirm-notebook-dialog.component';
-import { Person } from 'src/app/shared/interfaces/interfaces';
 import { FacadeService } from 'src/app/shared/services/facade.service';
 
 @Component({
-  selector: 'app-notebook-detail',
-  templateUrl: './notebook-detail.component.html',
-  styleUrls: ['./notebook-detail.component.scss']
+  selector: 'app-user-detail',
+  templateUrl: './user-detail.component.html',
+  styleUrls: ['./user-detail.component.scss']
 })
-export class NotebookDetailComponent implements OnInit {
+export class UserDetailComponent implements OnInit {
+
   person: any = {} as any;
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
   constructor(private facade: FacadeService
     , private activatedRoute: ActivatedRoute
@@ -39,7 +38,7 @@ export class NotebookDetailComponent implements OnInit {
       if (vaccine) {
         vaccine.nif = this.person.nif;
         vaccine.VaccineId = vaccine.id;
-        this.facade.AddSelfNotebook(vaccine).subscribe(() => this.loadPerson(this.person.nif))
+        this.facade.AddNotebook(vaccine).subscribe(() => this.loadPerson(this.person.nif))
 
 
       }
@@ -47,6 +46,22 @@ export class NotebookDetailComponent implements OnInit {
     });
   }
 
+  updateNotebook(vaccine): void {
+    const dialogRef = this.dialog.open(ConfirmNotebookDialogComponent, {
+      width: '360px',
+      data: vaccine
+    });
 
+    dialogRef.afterClosed().subscribe(notebook => {
+      if (notebook) {
+        vaccine.nif = this.person.nif;
+        vaccine.VaccineId = notebook.id;
+        this.facade.updateNotebook(vaccine).subscribe(() => this.loadPerson(this.person.nif))
+
+
+      }
+      console.log('The dialog was closed');
+    });
+  }
 
 }

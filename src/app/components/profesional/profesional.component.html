@@ -1,0 +1,29 @@
+<div fxLayout="column" fxLayoutAlign="center" [ngStyle.xs]="{'width': '95%'}" [ngStyle]="{'width': '60%'}"
+    style="margin:auto">
+    <div style="margin:15px auto" fxFlex>
+        <img src="assets/icons/vacunAPP-logo.jpg">
+    </div>
+    <mat-toolbar fxFlex style="display: block;
+    text-align: center;        background: #674ea7;font-size: 19px;
+;
+    color: white;">
+        Dr Pedro Kahn
+    </mat-toolbar>
+    <div fxFlex>
+        <mat-grid-list cols="1" rowHeight="100px" gutterSize="5px">
+            <mat-grid-tile class="activeAPP" style="background: lightblue;" routerLink="search"
+                [class.mat-elevation-z16]="true">
+                <div>
+                    <p>
+                        <mat-icon matBadgePosition="before" matBadgeColor="warn" matBadgeSize="medium" color="primary"
+                            class="menu-icon">search
+                        </mat-icon>
+                    </p>
+
+                    <p>BUSCAR</p>
+                </div>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </div>
+</div>

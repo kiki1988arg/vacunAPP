@@ -10,5 +10,5 @@ export const environment = {
     appId: "1:988697457995:web:7f38543976ffeda60c24ce",
     measurementId: "G-NFC9CNBG7H"
   },
-  url: 'https://vacunapp20201015224542.azurewebsites.net/api/'
+  url: 'https://vacunapp20201121082859.azurewebsites.net/api/'
 };

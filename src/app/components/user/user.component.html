@@ -1,10 +1,11 @@
 <div fxLayout="column" fxLayoutAlign="center" [ngStyle.xs]="{'width': '95%'}" [ngStyle]="{'width': '60%'}"
     style="margin:auto">
     <div style="margin:15px auto" fxFlex>
-        <img src="assets/icons/no-profile.png">
+        <img src="assets/icons/vacunAPP-logo.jpg">
     </div>
     <mat-toolbar fxFlex style="display: block;
-    text-align: center;    background: black;
+    text-align: center;        background: #674ea7;font-size: 19px;
+;
     color: white;">
         {{this.authService.currentUserValue.name}} {{this.authService.currentUserValue.lastName}}
     </mat-toolbar>
@@ -14,11 +15,11 @@
                 <div>
                     <p>
                         <mat-icon matBadgePosition="before" matBadge="{{this.pendingVaccines}}" matBadgeColor="warn"
-                            matBadgeSize="medium" color="primary" class="menu-icon">event_available
+                            matBadgeSize="medium" color="primary" class="menu-icon">colorize
                         </mat-icon>
                     </p>
 
-                    <p>CALENDARIOS</p>
+                    <p>VACUNAS A APLICAR</p>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="notebook" [class.mat-elevation-z16]="true">
@@ -36,16 +37,16 @@
                         <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
                     </p>
 
-                    <p>CENTROS</p>
+                    <p>CENTROS DE VACUNACION</p>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="vaccine" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
-                        <mat-icon color="primary" class="menu-icon">colorize</mat-icon>
+                        <mat-icon color="primary" class="menu-icon">event_available</mat-icon>
                     </p>
 
-                    <p>VACUNAS</p>
+                    <p>CALENDARIO NACIONAL</p>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>

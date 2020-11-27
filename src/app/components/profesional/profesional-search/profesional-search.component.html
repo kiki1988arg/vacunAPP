@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar>
+            <app-back-button></app-back-button>
+        </div>
+        <mat-card-title>
+            <p style="padding:4px">Búsqueda por DNI</p>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+        <mat-form-field fxFlex>
+            <mat-label>DNI</mat-label>
+            <input type="tel" matInput #message maxlength="8" [formControl]="nif" placeholder="Ex. I need help with...">
+            <mat-hint align="start"><strong>Ingrese DNI</strong> </mat-hint>
+            <mat-hint align="end">{{message.value.length}} / 8</mat-hint>
+            <mat-error>Campo requerido , mínimo 7 dígitos</mat-error>
+        </mat-form-field>
+        <div fxFlex style="margin:5px auto;">
+            <button mat-raised-button style="width: 200px" color="primary" (click)="search()">Buscar</button>
+        </div>
+        <mat-card class="person-list" [routerLink]="['../user/detail', person.nif]">
+            <p>{{ person.nif }}</p>
+            <p>{{ person.name }} {{ person.lastName }}</p>
+            <p>{{ person.bornDate | date }}</p>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

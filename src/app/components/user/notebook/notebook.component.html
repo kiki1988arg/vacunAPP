@@ -5,7 +5,13 @@
         <app-close-button></app-close-button>
     </span>
     <div mat-subheader>Personal</div>
-    <mat-list-item>
+    <mat-list-item [routerLink]="['detail', this.me.nif]">
+        <div mat-list-icon>
+            <span class="notebook-profile" [ngStyle]="{'background':'#674ea7','color':'white' }">
+
+                {{ this.me.name.slice(0,1).toUpperCase() }}{{ this.me.lastName.slice(0,1).toUpperCase() }}
+            </span>
+        </div>
         <div mat-line>{{this.me.name}}</div>
         <div mat-line> {{this.me.lastName}} </div>
         <span class="spacer"></span>
@@ -34,8 +40,13 @@
     </mat-list-item>
 
 </mat-list>
-<button style="position: fixed;
-bottom: 30px;
-right: 15px;" mat-fab color="accent" routerLink="create" aria-label="Example icon button with a bookmark icon">
-    <mat-icon>add</mat-icon>
-</button>
+<div class="example-button-container">
+    <button style="position: fixed;
+    background-color: white;
+bottom: 20px;
+right: 0;
+    left: 0;
+    margin: 0 auto;" mat-fab routerLink="create" aria-label="Example icon button with a bookmark icon">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

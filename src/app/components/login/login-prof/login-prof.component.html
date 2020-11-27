@@ -1,0 +1,40 @@
+<mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <app-close-button></app-close-button>
+        <mat-card-header>
+            <mat-card-title>Ingresá como profesional</mat-card-title>
+            <mat-card-subtitle>Complete e-mail y password</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>e-mail(*)</mat-label>
+                    <input matInput placeholder="e-mail" formControlName="userName" maxlength="50">
+                    <mat-icon matSuffix>mail_outline</mat-icon>
+                    <mat-hint>ejemplo@hotmail.com</mat-hint>
+                    <mat-error *ngIf="this.loginFormControls.userName.errors?.required">Campo requerido
+                    </mat-error>
+                    <mat-error *ngIf="this.loginFormControls.userName.errors?.email">Formato de mail incorrecto
+                    </mat-error>
+
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password(*)</mat-label>
+                    <input type="password" matInput placeholder="password" formControlName="password" maxlength="25">
+                    <mat-icon matSuffix>vpn_key</mat-icon>
+                    <mat-hint>Introduzca un password mayor a 6 caracteres</mat-hint>
+                    <mat-error *ngIf="this.loginFormControls.password.hasError">Introduzca un password mayor a 6
+                        caracteres
+                    </mat-error>
+                </mat-form-field>
+            </p>
+            <p style="color:red;margin:5px" *ngIf="this.loginError">Usuario o password incorrecto.</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button type="submit" mat-stroked-button [disabled]="!loginForm.valid" class="float-right" color="primary"
+                mat-button>Ingresar</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

@@ -35,6 +35,12 @@ import { PricingComponent } from './components/pricing/pricing.component';
 import localeEsAr from '@angular/common/locales/es-AR';
 import { NotebookDetailComponent } from './components/user/notebook/detail/notebook-detail/notebook-detail.component';
 import { CalendarComponent } from './components/user/calendar/calendar.component';
+import { ConfirmNotebookDialogComponent } from './shared/components/confirm-notebook-dialog/confirm-notebook-dialog.component';
+import { VaccineDetailComponent } from './shared/components/vaccine-detail/vaccine-detail.component';
+import { ProfesionalComponent } from './components/profesional/profesional.component';
+import { ProfesionalSearchComponent } from './components/profesional/profesional-search/profesional-search.component';
+import { UserDetailComponent } from './components/profesional/user-detail/user-detail.component';
+import { LoginProfComponent } from './components/login/login-prof/login-prof.component';
 registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
@@ -58,6 +64,12 @@ registerLocaleData(localeEsAr, 'es-Ar');
     PricingComponent,
     NotebookDetailComponent,
     CalendarComponent,
+    ConfirmNotebookDialogComponent,
+    VaccineDetailComponent,
+    ProfesionalComponent,
+    ProfesionalSearchComponent,
+    UserDetailComponent,
+    LoginProfComponent,
 
   ],
   imports: [

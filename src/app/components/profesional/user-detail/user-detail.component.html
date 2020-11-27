@@ -29,7 +29,7 @@
                     <mat-tab>
                         <ng-template mat-tab-label>
                             <mat-icon class="example-tab-icon">colorize</mat-icon>
-                            Pendientes
+                            Aplicar
                         </ng-template>
                         <mat-list>
                             <mat-list-item color="primary" *ngFor="let vaccine of this.person.vaccines">
@@ -44,30 +44,20 @@
                     <mat-tab>
                         <ng-template mat-tab-label>
                             <mat-icon class="example-tab-icon">colorize</mat-icon>
-                            Aplicadas
+                            Validar
                         </ng-template>
                         <mat-list>
-                            <mat-list-item color="primary" *ngFor="let history of this.person.notebooks">
-                                <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
-                                <div mat-line>Fecha de aplicación: {{history.applicationDate | date }}</div>
-                                <div mat-line>Lugar de vacunación:
-                                    {{(history.center.locale  != 0)?history.center.name: "-"}}
-                                </div>
+                            <ng-container *ngFor="let history of this.person.notebooks">
+                                <mat-list-item color="primary" *ngIf="history.center.locale == 0">
 
-
-                                <ng-template [ngIf]="history.center.locale == 0" [ngIfElse]="loading">
-
+                                    <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
+                                    <div mat-line>{{history.applicationDate | date }} {{history.center.name}}</div>
                                     <span class="spacer"></span>
-                                    <mat-icon style="color:#c12020">warning
-                                    </mat-icon>
-                                </ng-template>
 
-                                <ng-template #loading>
-                                    <span class="spacer"></span>
-                                    <mat-icon style="color:teal">check
+                                    <mat-icon style="color:green" (click)="updateNotebook(history)">upgrade
                                     </mat-icon>
-                                </ng-template>
-                            </mat-list-item>
+                                </mat-list-item>
+                            </ng-container>
                         </mat-list>
                     </mat-tab>
 

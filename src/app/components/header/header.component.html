@@ -16,12 +16,12 @@
         <mat-toolbar [class.mat-elevation-z6]="true" color="primary">
             <!-- *ngIf="currentUser.user | async as user; else showLogin"  -->
             <span *ngIf="this.authService.currentUser | async as user; else showLogin" style="display: contents;">
-                <button type="button" (click)="drawer.toggle()" mat-button>
+                <!-- <button type="button" (click)="drawer.toggle()" mat-button>
                     <mat-icon>dehaze</mat-icon>
-                </button>
+                </button> -->
                 <span class="spacer"></span>
                 <div>
-                    <button mat-mini-fab color="accent" [matMenuTriggerFor]="beforeMenu">
+                    <button mat-mini-fab style="background: white;" [matMenuTriggerFor]="beforeMenu">
                         <span
                             style="font-size:23px">{{ user.name.slice(0,1).toUpperCase() }}{{ user.lastName.slice(0,1).toUpperCase() }}</span>
                     </button>
@@ -29,10 +29,10 @@
                         <p style="margin: 0px 20px;">{{ user.email }}</p>
                         <mat-divider>
                         </mat-divider>
-                        <button mat-menu-item>
+                        <!-- <button mat-menu-item>
                             <mat-icon>perm_identity</mat-icon>
                             <span>Mi perfil</span>
-                        </button>
+                        </button> -->
                         <button mat-menu-item routerLink="user/contact">
                             <mat-icon class="menu-icon">phone</mat-icon>
                             <span>Ayuda</span>
