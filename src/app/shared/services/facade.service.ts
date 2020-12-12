@@ -53,8 +53,8 @@ export class FacadeService {
     return this.http.post<void>(this.personUrl, person)
   }
 
-  getNextVaccines(NIF: string) {
-    return this.http.get<any>(this.notebookUrl + `/${NIF}`);
+  getNextVaccines(months: string) {
+    return this.http.get<any>(this.notebookUrl + `/${months}`);
   }
 
   getNextVaccinesCount() {

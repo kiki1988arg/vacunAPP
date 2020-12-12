@@ -11,16 +11,19 @@ mat-list {
 
 mat-icon {
     font-size: 35px;
-    transform: translate(-5px, -3px);
+    transform: translate(-5px, -4px);
+    color: white
 }
 
 .notebook-profile {
-    background: red;
     border-radius: 50%;
     font-size: 17px;
     padding: 8px;
     height: 20px;
     width: 25px;
+    background: #80808040;
+    color: #674ea7;
+    font-weight: 500;
 }
 
 .example-button-container {

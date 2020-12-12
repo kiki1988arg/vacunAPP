@@ -51,7 +51,10 @@
                                 <mat-list-item color="primary" *ngIf="history.center.locale == 0">
 
                                     <div mat-line>{{history.vaccine.name}} - Mes: {{history.vaccine.month}}</div>
-                                    <div mat-line>{{history.applicationDate | date }} {{history.center.name}}</div>
+                                    <div mat-line>Fecha de aplicación: {{history.applicationDate | date }}</div>
+                                    <div mat-line>Lugar de vacunación:
+                                        {{(history.center.locale  != 0)?history.center.name: "-"}}
+                                    </div>
                                     <span class="spacer"></span>
 
                                     <mat-icon style="color:green" (click)="updateNotebook(history)">upgrade

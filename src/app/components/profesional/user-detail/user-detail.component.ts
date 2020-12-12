@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { AddNotebookDialogComponent } from 'src/app/shared/components/add-notebook-dialog/add-notebook-dialog.component';
 import { ConfirmNotebookDialogComponent } from 'src/app/shared/components/confirm-notebook-dialog/confirm-notebook-dialog.component';
+import { UpdateNotebookDialogComponent } from 'src/app/shared/components/update-notebook-dialog/update-notebook-dialog.component';
 import { FacadeService } from 'src/app/shared/services/facade.service';
 
 @Component({
@@ -29,9 +31,9 @@ export class UserDetailComponent implements OnInit {
   }
 
   addNotebook(vaccine): void {
-    const dialogRef = this.dialog.open(ConfirmNotebookDialogComponent, {
+    const dialogRef = this.dialog.open(AddNotebookDialogComponent, {
       width: '360px',
-      data: vaccine
+      data: { vaccine: vaccine, nif: this.person.nif }
     });
 
     dialogRef.afterClosed().subscribe(vaccine => {
@@ -42,12 +44,11 @@ export class UserDetailComponent implements OnInit {
 
 
       }
-      console.log('The dialog was closed');
     });
   }
 
   updateNotebook(vaccine): void {
-    const dialogRef = this.dialog.open(ConfirmNotebookDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateNotebookDialogComponent, {
       width: '360px',
       data: vaccine
     });
@@ -60,7 +61,6 @@ export class UserDetailComponent implements OnInit {
 
 
       }
-      console.log('The dialog was closed');
     });
   }
 

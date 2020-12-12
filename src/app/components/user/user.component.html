@@ -1,52 +1,53 @@
 <div fxLayout="column" fxLayoutAlign="center" [ngStyle.xs]="{'width': '95%'}" [ngStyle]="{'width': '60%'}"
     style="margin:auto">
     <div style="margin:15px auto" fxFlex>
-        <img src="assets/icons/vacunAPP-logo.jpg">
+        <img src="assets/icons/main-logo-8.png">
     </div>
     <mat-toolbar fxFlex style="display: block;
-    text-align: center;        background: #674ea7;font-size: 19px;
+    text-align: center;        background:rgb(23 36 54);font-size: 19px;
+    border-radius: 5px;
 ;
     color: white;">
         {{this.authService.currentUserValue.name}} {{this.authService.currentUserValue.lastName}}
     </mat-toolbar>
     <div fxFlex>
-        <mat-grid-list cols="2" rowHeight="150px" gutterSize="5px">
+        <mat-grid-list cols="2" rowHeight="125px" gutterSize="5px">
             <mat-grid-tile class="activeAPP" routerLink="calendar" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
                         <mat-icon matBadgePosition="before" matBadge="{{this.pendingVaccines}}" matBadgeColor="warn"
-                            matBadgeSize="medium" color="primary" class="menu-icon">colorize
+                            matBadgeSize="medium" class="menu-icon">colorize
                         </mat-icon>
                     </p>
 
-                    <p>VACUNAS A APLICAR</p>
+                    <p>Vacunas a aplicar</p>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="notebook" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
-                        <mat-icon color="primary" class="menu-icon">supervisor_account</mat-icon>
+                        <mat-icon class="menu-icon">supervisor_account</mat-icon>
                     </p>
 
-                    <p>MIS LIBRETAS</p>
+                    <p>Mis libretas</p>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="center" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
-                        <mat-icon color="primary" class="menu-icon">location_searching</mat-icon>
+                        <mat-icon class="menu-icon">location_searching</mat-icon>
                     </p>
 
-                    <p>CENTROS DE VACUNACION</p>
+                    <p>Centros de vacunación</p>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile class="activeAPP" routerLink="vaccine" [class.mat-elevation-z16]="true">
                 <div>
                     <p>
-                        <mat-icon color="primary" class="menu-icon">event_available</mat-icon>
+                        <mat-icon class="menu-icon">event_available</mat-icon>
                     </p>
 
-                    <p>CALENDARIO NACIONAL</p>
+                    <p>Calendario nacional</p>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>

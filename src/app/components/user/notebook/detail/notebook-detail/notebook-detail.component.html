@@ -35,15 +35,17 @@
                             <mat-list-item color="primary" *ngFor="let vaccine of this.person.vaccines">
                                 <div mat-line>{{vaccine.name}}</div>
                                 <div mat-line>año: {{ vaccine.month | monthToYear}} Mes:{{ vaccine.month | month}}</div>
+                                <div mat-line *ngIf="vaccine.isAlternative" style="color:tomato">Optativa</div>
+
                                 <span class="spacer"></span>
                                 <!-- <mat-icon style="color: black;">report</mat-icon> -->
-                                <mat-icon (click)="addNotebook(vaccine)" style="color: green;">add</mat-icon>
+                                <mat-icon (click)="addNotebook(vaccine)" style="color: #674ea7;">add</mat-icon>
                             </mat-list-item>
                         </mat-list>
                     </mat-tab>
                     <mat-tab>
                         <ng-template mat-tab-label>
-                            <mat-icon class="example-tab-icon">colorize</mat-icon>
+                            <mat-icon style="color:darkgreen" class="example-tab-icon">colorize</mat-icon>
                             Aplicadas
                         </ng-template>
                         <mat-list>

@@ -1,16 +1,25 @@
+<h4 class="title">Vacunas a aplicar</h4>
+
 <mat-card>
     <app-close-button></app-close-button>
 
     <mat-card-header>
         <h1>Próximas vacunas</h1>
     </mat-card-header>
+    <div>
+        <mat-radio-group [formControl]="floatLabelControl" (change)="changeMonth($event)" color="primary"
+            aria-label="Select an option" style="padding-left: 15px;">
+            <mat-radio-button value="3">3 meses</mat-radio-button>
+            <mat-radio-button value="12">12 meses</mat-radio-button>
+            <mat-radio-button value="0">vencidas</mat-radio-button>
+        </mat-radio-group>
+    </div>
 
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let item of this.nextVaccines">
+        <mat-expansion-panel *ngFor="let item of this.nextVaccines" style="margin: 20px 0;">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <span class="notebook-profile"
-                        [ngStyle]="{'background':item[0].gender == 'M' ? '#5EB7E6' : '#f1a5eb' }">
+                    <span class="notebook-profile">
                         {{ item[0].personName.slice(0,1).toUpperCase() }}{{ item[0].personLastName.slice(0,1).toUpperCase() }}
                     </span>
                 </mat-panel-title>
@@ -28,10 +37,15 @@
                             {{ item.personName.slice(0,1).toUpperCase() }}{{ item.personLastName.slice(0,1).toUpperCase() }}
                         </span>
                     </div> -->
+                    <mat-divider>
+                    </mat-divider>
                     <div mat-line>
                         <mat-icon color="primary">error_outline</mat-icon>
-                        {{item.name}} Año: {{item.month | monthToYear }} Mes: {{item.month | month }}
+                        {{item.name}}
+
                     </div>
+                    <p mat-line>Año: {{item.month | monthToYear }} Mes: {{item.month | month }}</p>
+                    <p mat-line *ngIf="item.due" style="color:red;">vencida</p>
                     <span class="spacer"></span>
                 </mat-list-item>
             </mat-list>

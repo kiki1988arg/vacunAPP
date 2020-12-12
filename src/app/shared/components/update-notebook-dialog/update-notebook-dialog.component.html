@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Confirmar validación</h1>
+<div mat-dialog-content>
+    <p>Usted validará la vacuna <b>{{this.vaccine.vaccine.name}}</b> para el DNI: <b>{{this.vaccine.nif}}</b></p>
+    <p>- {{this.vaccine.vaccine.description}}</p>
+    <p>Vacuna con VALIDEZ NACIONAL</p>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No, gracias</button>
+    <button mat-button [mat-dialog-close]="this.vaccine.vaccine" cdkFocusInitial>Validar</button>
+</div>

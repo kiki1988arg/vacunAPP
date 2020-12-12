@@ -14,6 +14,8 @@
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar [class.mat-elevation-z6]="true" color="primary">
+            <img class="header-logo" src="assets/icons/icon-72x72.png">
+            <h4 style="padding-left: 5px;">vacunAPP</h4>
             <!-- *ngIf="currentUser.user | async as user; else showLogin"  -->
             <span *ngIf="this.authService.currentUser | async as user; else showLogin" style="display: contents;">
                 <!-- <button type="button" (click)="drawer.toggle()" mat-button>
@@ -47,7 +49,7 @@
             </span>
             <ng-template #showLogin>
                 <span class="spacer"></span>
-                <span>VacunAPP</span>
+                <span></span>
             </ng-template>
         </mat-toolbar>
     </mat-drawer-content>

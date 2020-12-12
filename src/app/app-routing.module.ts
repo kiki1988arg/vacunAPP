@@ -47,7 +47,7 @@ const routes: Routes = [
     path: 'user', canActivate: [AuthGuard],
     children: [
       {
-        path: '', component: UserComponent, data: { animation: 'user' },
+        path: '', component: UserComponent, data: { animation: 'user', title: 'inicio' },
       },
       {
         path: 'contact', component: ContactComponent, data: { animation: 'contact' },

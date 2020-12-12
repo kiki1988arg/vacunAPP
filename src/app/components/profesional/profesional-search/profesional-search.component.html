@@ -1,3 +1,5 @@
+<h4 class="title">Buscar</h4>
+
 <mat-card>
     <mat-card-header>
         <div mat-card-avatar>
@@ -10,7 +12,7 @@
     <mat-card-content fxLayout="column">
         <mat-form-field fxFlex>
             <mat-label>DNI</mat-label>
-            <input type="tel" matInput #message maxlength="8" [formControl]="nif" placeholder="Ex. I need help with...">
+            <input type="tel" matInput #message maxlength="8" [formControl]="nif" placeholder="Ingrese DNI">
             <mat-hint align="start"><strong>Ingrese DNI</strong> </mat-hint>
             <mat-hint align="end">{{message.value.length}} / 8</mat-hint>
             <mat-error>Campo requerido , mínimo 7 dígitos</mat-error>
@@ -18,7 +20,7 @@
         <div fxFlex style="margin:5px auto;">
             <button mat-raised-button style="width: 200px" color="primary" (click)="search()">Buscar</button>
         </div>
-        <mat-card class="person-list" [routerLink]="['../user/detail', person.nif]">
+        <mat-card *ngIf="person.nif" class="person-list" [routerLink]="['../user/detail', person.nif]">
             <p>{{ person.nif }}</p>
             <p>{{ person.name }} {{ person.lastName }}</p>
             <p>{{ person.bornDate | date }}</p>

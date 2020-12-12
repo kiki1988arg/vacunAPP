@@ -1,11 +1,13 @@
 <div style="margin: 10vh;" fxLayout="column" fxLayoutAlign="space-evenly center">
   <img fxFlex class="logo" src="assets/icons/vacunAPP.png" />
 
-  <button class="app-button" mat-raised-button routerLink="/login">Ingresar</button>
-  <button class="app-button" mat-raised-button routerLink="/sign-in">
+  <button [class.mat-elevation-z24]="true" color="primary" class="app-button" mat-raised-button
+    routerLink="/login">Ingresar</button>
+  <button [class.mat-elevation-z24]="true" color="primary" class="app-button" mat-raised-button routerLink="/sign-in">
     Crear cuenta
   </button>
-  <button class="app-button" mat-raised-button routerLink="/login-prof">
+  <button [class.mat-elevation-z24]="true" color="primary" class="app-button" mat-raised-button
+    routerLink="/login-prof">
     Ingresar como profesional
   </button>
   <!-- <span style="display: inherit;color:black">

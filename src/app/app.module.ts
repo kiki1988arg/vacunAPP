@@ -41,6 +41,8 @@ import { ProfesionalComponent } from './components/profesional/profesional.compo
 import { ProfesionalSearchComponent } from './components/profesional/profesional-search/profesional-search.component';
 import { UserDetailComponent } from './components/profesional/user-detail/user-detail.component';
 import { LoginProfComponent } from './components/login/login-prof/login-prof.component';
+import { AddNotebookDialogComponent } from './shared/components/add-notebook-dialog/add-notebook-dialog.component';
+import { UpdateNotebookDialogComponent } from './shared/components/update-notebook-dialog/update-notebook-dialog.component';
 registerLocaleData(localeEsAr, 'es-Ar');
 
 @NgModule({
@@ -70,6 +72,8 @@ registerLocaleData(localeEsAr, 'es-Ar');
     ProfesionalSearchComponent,
     UserDetailComponent,
     LoginProfComponent,
+    AddNotebookDialogComponent,
+    UpdateNotebookDialogComponent,
 
   ],
   imports: [

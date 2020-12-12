@@ -1,3 +1,4 @@
+<h4 class="title">Mis libretas</h4>
 <mat-list>
     <span style="position: relative;
     float: right;
@@ -6,7 +7,7 @@
     </span>
     <div mat-subheader>Personal</div>
     <mat-list-item [routerLink]="['detail', this.me.nif]">
-        <div mat-list-icon>
+        <div mat-list-icon style="margin-right: 20px;">
             <span class="notebook-profile" [ngStyle]="{'background':'#674ea7','color':'white' }">
 
                 {{ this.me.name.slice(0,1).toUpperCase() }}{{ this.me.lastName.slice(0,1).toUpperCase() }}
@@ -18,9 +19,9 @@
     </mat-list-item>
     <mat-divider></mat-divider>
     <div mat-subheader>Personas a cargo</div>
-    <mat-list-item *ngFor="let person of persons" [routerLink]="['detail', person.nif]">
-        <div mat-list-icon>
-            <span class="notebook-profile" [ngStyle]="{'background':person.gender == 'M' ? '#5EB7E6' : '#f1a5eb' }">
+    <mat-list-item *ngFor="let person of persons" [routerLink]="['detail', person.nif]" style="    margin-bottom:20px">
+        <div mat-list-icon style="margin-right: 15px; ">
+            <span class="notebook-profile">
                 {{ person.name.slice(0,1).toUpperCase() }}{{ person.lastName.slice(0,1).toUpperCase() }}
             </span>
         </div>
@@ -42,8 +43,8 @@
 </mat-list>
 <div class="example-button-container">
     <button style="position: fixed;
-    background-color: white;
-bottom: 20px;
+    background-color: #674ea7;
+bottom: 56px;
 right: 0;
     left: 0;
     margin: 0 auto;" mat-fab routerLink="create" aria-label="Example icon button with a bookmark icon">

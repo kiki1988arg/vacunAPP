@@ -5,7 +5,7 @@
                 <app-back-button></app-back-button>
             </div>
             <mat-card-title>
-                Agregando personas a cargo
+                Agregar persona a cargo
             </mat-card-title>
             <mat-card-subtitle>Por favor complete los siguientes campos.</mat-card-subtitle>
         </mat-card-header>
@@ -34,7 +34,7 @@
             <mat-label>Sexo(*)</mat-label>
             <br>
             <div class=".mat-form-field">
-                <mat-radio-group formControlName="gender">
+                <mat-radio-group color="primary" style="margin: 5px;" formControlName="gender">
                     <mat-radio-button value="M">Masculino</mat-radio-button>
                     <mat-radio-button value="F">Femenino</mat-radio-button>
                     <mat-radio-button value="O">Otro</mat-radio-button>
@@ -53,7 +53,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions align="center">
-            <button mat-flat-button color="accent">Confirmar</button>
+            <button mat-flat-button color="primary">Confirmar</button>
         </mat-card-actions>
     </form>
 </mat-card>
